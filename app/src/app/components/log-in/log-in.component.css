@@ -1,0 +1,85 @@
+.d-flex{
+    margin: 5rem;
+    display:flex;
+    justify-self: center;
+    box-shadow: 3px 3px 12px 12px grey;
+    width:min-content;
+}
+.image1{
+    width:60vw;
+    height:40vh;
+}
+.image2{
+    width:35vw;
+    height:86.2vh;
+    position: relative;
+    top:37rem;
+    bottom: 0rem;
+    background: rgba(255,172,25,255);
+}
+.logo{
+    height:20rem;
+    margin: 6rem;
+}
+.pl-4{
+    padding-left: 4rem;
+}
+.d-flex h1{
+    font-size: 25rem;
+    margin-left: 5rem;;
+    font-weight: 500rem;
+    color:rgba(51,64,83,255);
+}
+.text-yellow{
+    color:rgba(255,172,25,255);
+}
+.text-purple{
+    color:rgba(147,25,255,255);
+}
+.d-flex h2{
+    font-size: 9rem;
+    color:rgba(51,64,83,255);
+    margin-left: 5rem;;
+
+}
+
+.div-right{
+    background:rgba(147,25,255,255) ;
+    height:100rem;
+}
+hr{
+    position: relative;
+    bottom:165rem;
+    width:29rem;
+    color: white;
+}
+.form-div{
+    position: relative;
+    bottom: 150rem;
+    left: 60rem;
+    font-size: 6rem;
+}
+.form-div p{
+    color: white;;
+}
+.form input{
+height:15rem;
+margin-bottom: 2rem;
+border-style: none;
+border-radius: 5px;
+width:80rem;
+font-size: 4rem;
+color: grey;
+border-radius: 2rem;
+padding-left: 2rem;
+}
+.form button{
+    background:rgba(255,172,25,255) ;
+    color:white;
+    width: 24rem;
+    height:9rem;
+    margin-top: 5rem;
+    border-style: none;
+    border-radius: 5rem;
+    font-size: 5rem;
+}
