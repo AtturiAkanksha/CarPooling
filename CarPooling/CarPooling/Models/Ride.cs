@@ -25,4 +25,3 @@ public partial class Ride
 
     public string rideType { get; set; } = null!;
 }
-//hhh

@@ -47,8 +47,6 @@ C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\CarP
 C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\CarPooling.AssemblyInfoInputs.cache
 C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\CarPooling.AssemblyInfo.cs
 C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\CarPooling.csproj.CoreCompileInputs.cache
-C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\CarPooling.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\CarPooling.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\staticwebassets\msbuild.CarPooling.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\staticwebassets\msbuild.build.CarPooling.props
 C:\Users\bootcamp\Desktop\CarPooling\CarPooling\CarPooling\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.CarPooling.props

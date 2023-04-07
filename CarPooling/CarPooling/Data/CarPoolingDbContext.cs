@@ -20,4 +20,3 @@ public partial class CarPoolingDbContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 }
-//hhh
