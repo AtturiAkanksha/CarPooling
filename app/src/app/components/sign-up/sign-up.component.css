@@ -10,7 +10,7 @@
 }
 .image2{
     width:35vw;
-    height:86.2vh;
+    height:84vh;
     position: relative;
     top:37rem;
     bottom: 0rem;
@@ -47,15 +47,15 @@
 }
 hr{
     position: relative;
-    bottom:165rem;
-    width:29rem;
+    bottom:155rem;
+    width:23rem;
     color: white;
 }
 
 .form-div{
     position: relative;
     bottom: 150rem;
-    left: 60rem;
+    left: 40rem;
     font-size: 6rem;
 }
 .form-div p{

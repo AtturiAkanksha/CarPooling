@@ -1,0 +1,14 @@
+<div class="d-flex">
+    <img [src]="logo" class="logo" alt="logo">
+    <div class="d-flex">
+        <h1 class="header-title"><b>John Wills</b></h1>
+        <div class="div-right">
+        <img [src]="user" class="image" alt="user" (click)="onProfileCilck()">
+        </div>
+    </div>
+</div>
+<div [hidden]="isHide" class="hidden">
+    <div class="option" >profile</div>
+    <div class="option" >my rides</div>
+    <div class="option" >logout</div>
+</div>

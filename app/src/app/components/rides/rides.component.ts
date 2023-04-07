@@ -6,10 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./rides.component.css']
 })
 export class RidesComponent {
-  logo:any='/assets/images/logo.png/'
-  user:any='/assets/images/john.jpg/'
   clint:any='/assets/images/clint.jpg/'
   morgan:any='/assets/images/morgan.jpg/'
   chris:any='/assets/images/chris.jpeg/'
   jeffrey:any='/assets/images/jeffrey.webp/'
+ 
 }

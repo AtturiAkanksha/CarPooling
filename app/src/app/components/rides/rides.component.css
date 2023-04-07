@@ -1,19 +1,15 @@
-.main{
-    height:100rem;
-    margin-top: 60rem;
-}
-.background-img{
+.outer-div{
+    margin: 5rem;
+    width: 390rem;
+    height: 300rem;
+    padding : 5rem 5rem;
+    box-shadow: 3px 3px 12px 12px grey;
     background-image: url("/assets/images/img4.png");
+    background-repeat: no-repeat;
+    background-size: 390rem 100rem;
+    background-position:bottom;
 }
-.image{
-    height:15rem;
-    width: 15rem;
-    border-radius: 50%;
-}
-.logo{
-    width: 20rem;
-    margin: 6rem;
-}
+
 .d-flex{
     display: flex;
     justify-content: space-between;
@@ -43,7 +39,6 @@
     margin-top:-5rem;
     margin-bottom: 5rem;
 }
- 
 button{
     border-radius: 1rem;
     height:6rem;
@@ -68,4 +63,8 @@ color: white;
 }
 .box-body{
     align-items: flex-start;
+}
+.image{
+    height: 20rem;
+    width: 20rem;
 }

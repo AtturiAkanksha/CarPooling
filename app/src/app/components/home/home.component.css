@@ -1,14 +1,11 @@
-.user{
-    height:20rem;
-    width: 20rem;
-    border-radius: 50%;
-}
-.logo{
-    width: 20rem;
-    margin: 6rem;
+.outer-div{
+    margin: 5rem;
+    padding: 0 5rem;
+    width: 390rem;
+    box-shadow: 3px 3px 12px 12px grey;
 }
 .image3{
-    width:100vw;
+    width:390rem;
     height:65vh;
 }
 .d-flex{

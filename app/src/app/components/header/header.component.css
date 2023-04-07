@@ -1,0 +1,38 @@
+
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.d-flex h1{
+    font-size: 5rem;
+    margin-right: 1rem;
+}
+.logo{
+    height:20rem;
+    margin: 6rem;
+}
+.image{
+    height:15rem;
+    width: 15rem;
+    border-radius: 50%;
+    
+}
+.hidden{
+    box-shadow: 3px 3px 12px 12px grey;
+   float: right;
+    width:25rem;
+}
+.option
+{
+    width:25rem;
+    height:10rem;
+    color:black ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   font-size: 4rem;
+}
+.option:hover{
+    background-color:rgba(118,83,252,255);
+}

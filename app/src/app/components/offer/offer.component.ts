@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./offer.component.css']
 })
 export class OfferComponent {
-  logo:any='/assets/images/logo.png/'
-  user:any='/assets/images/john.jpg/'
+  OfferRide(){
+    
+  }
 }
