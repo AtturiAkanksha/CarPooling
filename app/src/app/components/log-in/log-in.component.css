@@ -91,3 +91,7 @@ padding-left: 2rem;
     border-radius: 5rem;
     font-size: 5rem;
 }
+.error-message{
+    color:red;
+    font-size: 3rem;
+}

@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import{HttpClientModule} from '@angular/common/http'
+import{HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -11,7 +11,9 @@ import { BookComponent } from './components/book/book.component';
 import { RidesComponent } from './components/rides/rides.component';
 import { OfferComponent } from './components/offer/offer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { CarPoolingService } from './car-pooling.service';
+import { authService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,19 @@ import { CarPoolingService } from './car-pooling.service';
     BookComponent,
     RidesComponent,
     OfferComponent,
-    HeaderComponent
+    HeaderComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
-    CarPoolingService
+    authService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
