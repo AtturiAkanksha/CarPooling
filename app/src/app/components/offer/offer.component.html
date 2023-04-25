@@ -9,11 +9,11 @@
                 </div>
                 <form action="">
                     <label class="text-small" for="from">From:</label><br>
-                    <input class="" id="from" type="text" required><br><br>
+                    <input class="" id="from" type="text" formControlName="startPoint" required><br><br>
                     <label class="text-small" for="to">To:</label><br>
-                    <input class="" id="to" type="text" required><br><br>
+                    <input class="" id="to" type="text" formControlName="endPoint" required><br><br>
                     <label class="text-small" for="date">Date:</label><br>
-                    <input class="" id="date" type="date" required><br><br>
+                    <input class="" id="date" type="date" formControlName="date" required><br><br>
                     <p for="time" class="text-small">Time:</p><br>
                     <button type="button" class="button text-small" name="button">5am-9pm</button>
                     <button type="button" class="button text-small" name="button">9am-12pm</button>
@@ -23,7 +23,7 @@
                     <h1>Next>></h1>
                 </form>
             </div>
-            <div class="flex-box" (click)="OfferRide">
+            <div class="flex-box" >
                 <div class="box-header">
                     <h2 class="box-title">Offer a Ride</h2>
                     <p>we get you the matches asap!</p>
@@ -39,15 +39,15 @@
                         <p class="text-small">Available seats:</p><br>
                         <p class="text-small">price</p>
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex ">
                         <div>
                     <button type="button" class="button-circle text-small" name="button">1</button>
                     <button type="button" class="button-circle text-small" name="button">2</button>
                     <button type="button" class="button-circle text-small" name="button">3</button>
                     </div>
-                    <p class="text-large"><b>180$</b></p>
+                    <p class="text-large" formControlName="price"><b>180$</b></p>
                     </div>
-                    <button type="button" class="button text-large" id="submit">submit</button>
+                    <button type="button" class="button text-large" id="submit" (click)="OfferRide()">submit</button>
                 </form>
 
             </div>

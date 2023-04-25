@@ -1,79 +1,83 @@
 <div class="outer-div">
     <div>
         <app-header></app-header>
-        <div class="flex-boxes">
+        <div class="d-flex">
             <div class="flex-box">
                 <div class="box-header">
-                    <h2 class="box-title">Book a Ride</h2>
+                    <h1 class="box-title">Book a Ride</h1>
                     <p>we get you the matches asap!</p>
                 </div>
-                
+
                 <form action="">
-                    <label  class="text-small" for="from">From:</label><br>
+                    <label class="text-small" for="from">From:</label><br>
                     <input class="" id="from" type="text" required><br><br>
                     <label class="text-small" for="to">To:</label><br>
                     <input class="" id="to" type="text" required><br><br>
                     <label class="text-small" for="date">Date:</label><br>
                     <input class="" id="date" type="date" required><br><br>
                     <p for="time" class="text-small">Time:</p><br>
-                     <button type="button" class="button text-small" name="button" >5am-9pm</button>
-                     <button type="button" class="button text-small" name="button" >9am-12pm</button>
-                     <button type="button" class="button text-small" name="button" >12am-2pm</button>
-                     <button type="button" class="button text-small" name="button" >2am-6pm</button>
-                     <button type="button" class="button text-small" name="button" >6am-9pm</button><br>
+                    <button type="button" class="button text-small" name="button">5am-9pm</button>
+                    <button type="button" class="button text-small" name="button">9am-12pm</button>
+                    <button type="button" class="button text-small" name="button">12am-2pm</button>
+                    <button type="button" class="button text-small" name="button">2am-6pm</button>
+                    <button type="button" class="button text-small" name="button">6am-9pm</button><br>
                     <button type="button" class="text-small" id="submit" name="button" value="">submit</button>
                 </form>
             </div>
-           
-            <div class="flex-box">
-                <div class="box-header d-flex">
-                    <h2 class="box-title">Clint Barton</h2>
-                    <img [src]="clint" class="image" alt="">
-                </div>
-                <div class="box-body d-flex">
-                    <div>
-                        <p class="text-small">from</p>
-                        <p class="text-large">cincinnati</p>
-                        <p class="text-small">Date</p>
-                        <p class="text-large">xx/mm/yyyy</p>
-                        <p class="text-small">price</p>
-                        <p class="text-large">180$</p>
+            <div class="div-right">
+                <h1>Your Matches</h1>
+                <div class="flex-boxes">
+                    <div class="flex-box">
+                        <div class="box-header d-flex">
+                            <h2 class="box-title">Clint Barton</h2>
+                            <img [src]="clint" class="image" alt="">
+                        </div>
+                        <div class="box-body d-flex">
+                            <div>
+                                <p class="text-small">from</p>
+                                <p class="text-large">cincinnati</p>
+                                <p class="text-small">Date</p>
+                                <p class="text-large">xx/mm/yyyy</p>
+                                <p class="text-small">price</p>
+                                <p class="text-large">180$</p>
+                            </div>
+                            <div>
+                                <p class="text-small">to</p>
+                                <p class="text-large">Minneapolis</p>
+                                <p class="text-small">Time</p>
+                                <p class="text-large">5am to 9am</p>
+                                <p class="text-small">seat availabilty</p>
+                                <p class="text-large">02</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <p class="text-small">to</p>
-                        <p class="text-large">Minneapolis</p>
-                        <p class="text-small">Time</p>
-                        <p class="text-large">5am to 9am</p>
-                        <p class="text-small">seat availabilty</p>
-                        <p class="text-large">02</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flex-box">
-                <div class="box-header d-flex">
-                    <h2 class="box-title">Morgan Stark</h2>
-                    <img [src]="morgan" class="image" alt="">
-                </div>
-                <div class="box-body d-flex">
-                    <div>
-                        <p class="text-small">from</p>
-                        <p class="text-large">cincinnati</p>
-                        <p class="text-small">Date</p>
-                        <p class="text-large">xx/mm/yyyy</p>
-                        <p class="text-small">price</p>
-                        <p class="text-large">180$</p>
-                    </div>
-                    <div>
-                        <p class="text-small">to</p>
-                        <p class="text-large">Minneapolis</p>
-                        <p class="text-small">Time</p>
-                        <p class="text-large">5am to 9am</p>
-                        <p class="text-small">seat availabilty</p>
-                        <p class="text-large">02</p>
+                    <div class="flex-box">
+                        <div class="box-header d-flex">
+                            <h2 class="box-title">Morgan Stark</h2>
+                            <img [src]="morgan" class="image" alt="">
+                        </div>
+                        <div class="box-body d-flex">
+                            <div>
+                                <p class="text-small">from</p>
+                                <p class="text-large">cincinnati</p>
+                                <p class="text-small">Date</p>
+                                <p class="text-large">xx/mm/yyyy</p>
+                                <p class="text-small">price</p>
+                                <p class="text-large">180$</p>
+                            </div>
+                            <div>
+                                <p class="text-small">to</p>
+                                <p class="text-large">Minneapolis</p>
+                                <p class="text-small">Time</p>
+                                <p class="text-large">5am to 9am</p>
+                                <p class="text-small">seat availabilty</p>
+                                <p class="text-large">02</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
- 
+
 </div>

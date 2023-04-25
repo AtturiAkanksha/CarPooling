@@ -1,13 +1,10 @@
 .outer-div{
-    margin: 5rem;
-    width: 390rem;
-    height: 300rem;
+    height: 100vh;
     padding : 5rem 5rem;
-    box-shadow: 3px 3px 12px 12px grey;
     background-image: url("/assets/images/img4.png");
     background-repeat: no-repeat;
     background-size: 390rem 100rem;
-    background-position:bottom;
+    background-position-y: bottom;
 }
 
 .d-flex{
@@ -22,7 +19,7 @@
 .flex-box{
     height:max-content;
     padding: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     width: 90rem;
     box-shadow: 4px 4px  8px 8px rgb(199, 197, 197);
 }
@@ -30,8 +27,8 @@
     font-size: 5rem;
     margin-right: 5rem;
 }
-.box-header{
-    font-size: 4rem;
+.box-title{
+    font-size: 6rem;
 }
 .box-header p{
     font-size: 3rem;

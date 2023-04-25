@@ -1,11 +1,10 @@
 .outer-div{
-    margin: 5rem;
     padding: 0 5rem;
-    width: 390rem;
-    box-shadow: 3px 3px 12px 12px grey;
+    width: 100vw;
+    height:100vh;
 }
 .image3{
-    width:390rem;
+    width:100vw;
     height:65vh;
 }
 .d-flex{

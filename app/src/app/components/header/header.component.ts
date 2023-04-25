@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,13 @@ export class HeaderComponent {
   user:any='/assets/images/john.jpg/'
   isHide=true;
 
+  constructor(private router:Router) {
+    
+  }
   onProfileCilck(){
     this.isHide= !this.isHide;
+  }
+  onMyridesClick(){
+    this.router.navigate(['/rides'])
   }
 }

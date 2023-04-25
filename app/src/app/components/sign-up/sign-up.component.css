@@ -1,16 +1,10 @@
-.d-flex{
-    margin: 5rem;
-    display:flex;
-    box-shadow: 3px 3px 12px 12px grey;
-    width:min-content;
-}
 .image1{
     width:60vw;
-    height:40vh;
+    height: 55vh;
 }
 .image2{
-    width:35vw;
-    height:84vh;
+    width:37vw;
+    height: 82.5vh;
     position: relative;
     top:37rem;
     bottom: 0rem;
@@ -47,15 +41,16 @@
 }
 hr{
     position: relative;
-    bottom:155rem;
-    width:23rem;
+    bottom:150rem;
+    left:75rem;
+    width:26rem;
     color: white;
 }
 
 .form-div{
     position: relative;
-    bottom: 150rem;
-    left: 40rem;
+    bottom: 130rem;
+    left: 50rem;
     font-size: 6rem;
 }
 .form-div p{

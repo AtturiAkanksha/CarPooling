@@ -19,4 +19,8 @@ export class authService {
     const baseServerUrl = "https://localhost:7144/Api/CarPooling/logIn";
     return this.http.post<User>(baseServerUrl,user)
 }
+
+  public Offerride(ride: Ride):Observable<any>{
+
+  }
 }
