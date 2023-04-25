@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using CarPooling.Models;
+﻿using CarPooling.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarPooling.Data;
@@ -15,8 +13,8 @@ public partial class CarPoolingDbContext : DbContext
         : base(options)
     {
     }
-
-    public virtual DbSet<Ride> Rides { get; set; }
-
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<OfferRide> OfferedRides { get; set; }
+    public virtual DbSet<BookRide> BookedRides { get; set; }
+    public virtual DbSet<Stop> Stops { get; set; }
 }

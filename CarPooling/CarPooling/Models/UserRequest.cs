@@ -1,6 +1,6 @@
 ﻿namespace CarPooling.Models
 {
-    public class AddUserRequest
+    public class UserRequest
     {
         public string email { get; set; } = null!;
 

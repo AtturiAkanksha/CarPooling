@@ -13,18 +13,18 @@ namespace CarPooling.Controllers
     [ApiController]
     [Route("Api/[controller]")]
     [EnableCors("AllowOrigin")]
-    public class CarPooling : Controller
+    public class LoginController : Controller
     {
         private readonly CarPoolingDbContext dbContext;
         private IConfiguration _config;
-        public CarPooling(CarPoolingDbContext dbContext, IConfiguration configuration) {
+        public LoginController(CarPoolingDbContext dbContext, IConfiguration configuration) {
             this.dbContext = dbContext;
             _config = configuration;
         }
 
         [HttpPost]
         [Route("createUser")]
-        public async Task<IActionResult> AddUser(AddUserRequest addUserRequest)
+        public async Task<IActionResult> AddUser(UserRequest addUserRequest)
         {
             var user = new User()
             {
@@ -54,12 +54,6 @@ namespace CarPooling.Controllers
         {
             return Ok(await dbContext.Users.ToListAsync());
         }
-        [HttpGet]
-        [Route("ride")]
-        public async Task<IActionResult> GetRides()
-        {
-            return Ok(await dbContext.Rides.ToListAsync());
-        }
 
         private string GenerateToken()
         {
@@ -75,7 +69,7 @@ namespace CarPooling.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("logIn")]
-        public async Task<IActionResult> Login(AddUserRequest addUserRequest)
+        public async Task<IActionResult> Login(UserRequest addUserRequest)
         {
             IActionResult response = Unauthorized();
             var user = new User()
@@ -98,40 +92,7 @@ namespace CarPooling.Controllers
             
         }
 
-        [HttpPost]
-        [Route("ride")]
-        public async Task<IActionResult> AddRide(AddRideRequest addRideRequest)
-        {
-            var ride = new Ride()
-            {
-                id = Guid.NewGuid(),
-                name = addRideRequest.name,
-                startPoint = addRideRequest.startPoint,
-                endPoint = addRideRequest.endPoint,
-                date = addRideRequest.date,
-                startTime = addRideRequest.startTime,
-                price = addRideRequest.price,
-                endTime = addRideRequest.endTime,
-                seats = addRideRequest.seats,
-                rideType = addRideRequest.rideType,
-            };
-            await dbContext.Rides.AddAsync(ride);
-            await dbContext.SaveChangesAsync();
-            return Ok(ride);
-        }
 
-        [HttpGet]
-        [Route("{id:guid}")]
-        public async Task<IActionResult> GetRide([FromRoute] Guid id)
-        {
-            var ride = await dbContext.Rides.FindAsync(id);
-            if (ride == null)
-            {
-                return NotFound();
-            }
-            return Ok(ride);
-        }
-       
     }
 
 }
