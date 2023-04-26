@@ -32,15 +32,16 @@ namespace CarPooling.Controllers
         {
             var offerRide = new OfferRide()
             {
-                Id = Guid.NewGuid(),
-                Name = offerRideRequest.Name,
+                OfferRideId = Guid.NewGuid(),
+                UserId = offerRideRequest.UserId,
+                UserName= offerRideRequest.UserName,
                 StartPoint = offerRideRequest.StartPoint,
                 EndPoint = offerRideRequest.EndPoint,
-                StartTime = offerRideRequest.StartTime,
-                EndTime = offerRideRequest.EndTime,
+                TimeSlot = offerRideRequest.TimeSlot,
                 Date = offerRideRequest.Date,
                 Price = offerRideRequest.Price,
                 Seats = offerRideRequest.Seats,
+                IsActive= offerRideRequest.IsActive,
             };
             await dbContext.OfferedRides.AddAsync(offerRide);
             await dbContext.SaveChangesAsync();

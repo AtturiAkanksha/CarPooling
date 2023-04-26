@@ -32,21 +32,21 @@ namespace CarPooling.Controllers
         {
             var bookRide = new BookRide()
             {
-                Id = Guid.NewGuid(),
-                Name = bookRideRequest.Name,
+                BookRideId = Guid.NewGuid(),
+                UserName= bookRideRequest.UserName,
+                UserId= bookRideRequest.UserId,
                 StartPoint = bookRideRequest.StartPoint,
                 EndPoint = bookRideRequest.EndPoint,
-                StartTime = bookRideRequest.StartTime,
-                EndTime = bookRideRequest.EndTime,
+                TimeSlot = bookRideRequest.TimeSlot,
                 Date = bookRideRequest.Date,
                 Seats = bookRideRequest.Seats,
             };
                 var offeredRide = dbContext.OfferedRides.FirstOrDefault(x =>
-                x.Name != bookRideRequest.Name && 
+                x.UserId != bookRideRequest.UserId && 
+                x.UserName != bookRideRequest.UserName &&
                 x.StartPoint == bookRide.StartPoint &&
                 x.EndPoint == bookRide.EndPoint &&
-                x.StartTime == bookRide.StartTime &&
-                x.EndTime == bookRide.EndTime &&
+                x.TimeSlot == bookRide.TimeSlot &&
                 x.Date == bookRide.Date &&
                 x.Seats >= bookRide.Seats
             );

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CarPooling.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class third : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,37 +15,40 @@ namespace CarPooling.Migrations
                 name: "BookedRides",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BookRideId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OfferRideId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StartPoint = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EndPoint = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StartTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EndTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Seats = table.Column<int>(type: "int", nullable: false)
+                    TimeSlot = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Seats = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookedRides", x => x.Id);
+                    table.PrimaryKey("PK_BookedRides", x => x.BookRideId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "OfferedRides",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OfferRideId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StartPoint = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EndPoint = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StartTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EndTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TimeSlot = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Seats = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OfferedRides", x => x.Id);
+                    table.PrimaryKey("PK_OfferedRides", x => x.OfferRideId);
                 });
 
             migrationBuilder.CreateTable(
