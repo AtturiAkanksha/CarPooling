@@ -25,7 +25,6 @@ namespace CarPooling.Controllers
         {
             return Ok(await dbContext.BookedRides.ToListAsync());
         }
-
        
         [HttpPost]
         [Route("bookRide")]
@@ -42,20 +41,20 @@ namespace CarPooling.Controllers
                 Date = bookRideRequest.Date,
                 Seats = bookRideRequest.Seats,
             };
-                var bookedRide = dbContext.OfferedRides.FirstOrDefault(x =>
+                var offeredRide = dbContext.OfferedRides.FirstOrDefault(x =>
+                x.Name != bookRideRequest.Name && 
                 x.StartPoint == bookRide.StartPoint &&
                 x.EndPoint == bookRide.EndPoint &&
                 x.StartTime == bookRide.StartTime &&
                 x.EndTime == bookRide.EndTime &&
                 x.Date == bookRide.Date &&
                 x.Seats >= bookRide.Seats
-
             );
-            if(bookedRide != null)
+            if(offeredRide != null)
             {
-                await dbContext.BookedRides.AddAsync(bookedRide);
+                await dbContext.BookedRides.AddAsync(bookRide);
                 await dbContext.SaveChangesAsync();
-                return Ok(bookedRide);
+                return Ok(bookRide);
             }
             return NotFound();
         }
