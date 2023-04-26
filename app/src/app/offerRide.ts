@@ -3,10 +3,16 @@ export class OfferRide{
     startpoint: any;
     endPoint: any;
     date:any;
-    startTime:any;
+    timeSlot:any;
+    seats:number;
+    price:any;
     
-    constructor(email:any,password: any){
-        this.email=email;
-        this.password = password;
+    constructor(startpoint: any,endPoint: any, date:any ,timeSlot:any, seats:number,  price:any){
+        this.startpoint=startpoint;
+        this.endPoint = endPoint;
+        this.date= date;
+        this.timeSlot = timeSlot;
+        this.seats= seats;
+        this.price = price
     }
 }
