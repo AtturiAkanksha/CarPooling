@@ -8,18 +8,21 @@
                     <p>we get you the matches asap!</p>
                 </div>
                 <form [formGroup]="offerRideForm">
-                    <label class="text-small" for="from">From:</label><br>
-                    <input class="" id="from" type="text" formControlName="startPoint" required><br><br>
+                    <div class="form-group">
+                    <label class="text-small"  for="from">From:</label><br>
+                    <input class="" id="startPoint" #from name="from" type="text"  formControlName="startPoint" required><br><br>
+                    </div>
+                    <div *ngIf="isNextClicked && offerRideForm.get('from')?.errors?.['required']" class="error-message" >Error! field empty</div>
                     <label class="text-small" for="to">To:</label><br>
-                    <input class="" id="to" type="text" formControlName="endPoint" required><br><br>
+                    <input class="" id="endPoint" type="text" formControlName="endPoint" required><br><br>
                     <label class="text-small" for="date">Date:</label><br>
                     <input class="" id="date" type="date" formControlName="date" required><br><br>
                     <p for="time" class="text-small">Time:</p><br>
-                    <button type="button" *ngFor="let timeSlot of timeSlots" class="button text-small" name="button" (click)="clickTimeSlot(timeSlot)">{{timeSlot}}</button><br>
-                    <h1>Next>></h1>
+                    <button type="button" *ngFor="let timeSlot of timeSlots" class="button text-small" [ngClass]="[buttonIsactive ? 'button':'background-violet']" (click)="clickTimeSlot(timeSlot)">{{timeSlot}}</button><br>
+                    <h1 (click)="onNextClick()">Next>></h1>
                 </form>
             </div>
-            <div class="flex-box" >
+            <div class="flex-box" [hidden]="isShowDiv">
                 <div class="box-header">
                     <h2 class="box-title">Offer a Ride</h2>
                     <p>we get you the matches asap!</p>

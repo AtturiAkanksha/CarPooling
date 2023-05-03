@@ -27,3 +27,4 @@ export class authService {
     return this.http.post<OfferRide>(baseServerUrl,ride)
   }
 }
+

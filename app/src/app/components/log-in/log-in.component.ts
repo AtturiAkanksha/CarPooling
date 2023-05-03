@@ -3,6 +3,7 @@ import { authService } from 'src/app/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/user';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-log-in',
@@ -13,7 +14,8 @@ export class LogInComponent {
   logo:any = '/assets/images/logo.png/';
   image1:any = '/assets/images/img1.png/';
   logIn:any='/assets/images/logIn.png/';
-  toggleDiv: boolean = false;
+  validLogin:Boolean =true;
+  errormessage: string;
 
   constructor(private authService: authService, private router:Router) {
   }
@@ -25,13 +27,14 @@ export class LogInComponent {
     const emailInput:any = this.logInForm.get('email')?.value;
     const passwordInput:any = this.logInForm.get('password')?.value;
     const user:User = {email:emailInput, password:passwordInput};
-    this.authService.logInUser(user).subscribe((res) => {
-      if(res.status == 200){
-       this.router.navigate(['/home'])}
-    else{
-      this.toggleDiv = true}
+    this.authService.logInUser(user).subscribe({
+     next:(res) => {
+      this.validLogin;
+      this.router.navigate(['/home'])
+     },
+     error:(err:HttpErrorResponse) =>{this.errormessage = err.error ;
+    this.validLogin = false} 
   });
-  
-  } 
-  
-}
+  }
+} 
+

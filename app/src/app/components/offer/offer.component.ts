@@ -14,13 +14,23 @@ export class OfferComponent {
 constructor(private authService: authService, private router:Router) {
 
 }
+    buttonIsactive = false;
+    isNextClicked = true;
+    isShowDiv = true;
     timeSlot:string; 
     seats:number;
     timeSlots = ["5am-9am", "9am-12pm", "12pm-3pm", "3pm-6pm", "6pm-9pm"];
     noOfSeats = [1,2,3,4,5];
 
+    onNextClick(){
+      this.isNextClicked;
+      this.isShowDiv = !this.isShowDiv;
+      console.log("sjhdkJD");
+    }
+
     clickTimeSlot(value:string){
       this.timeSlot = value;
+      this.buttonIsactive = !this.buttonIsactive;
     }
 
     clickSeats(value:number){
@@ -38,6 +48,7 @@ constructor(private authService: authService, private router:Router) {
   })
 
   OfferRide(){
+    if(this.offerRideForm.status == "VALID"){
     const startPoint:any = this.offerRideForm.get('startPoint')?.value;
     const endPoint:any = this.offerRideForm.get('endPoint')?.value;
     const date:any = this.offerRideForm.get('date')?.value;
@@ -46,5 +57,6 @@ constructor(private authService: authService, private router:Router) {
     const seats:number = this.seats;
     const offerRide:OfferRide = {startpoint:startPoint, endPoint:endPoint,date:date,price:price,timeSlot:timeSlot,seats:seats };
     this.authService.offerRide(offerRide).subscribe();
+    }
   }
 }
