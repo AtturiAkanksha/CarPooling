@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CarPooling.Migrations
 {
     /// <inheritdoc />
-    public partial class third : Migration
+    public partial class fifth : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,19 +52,6 @@ namespace CarPooling.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Stops",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Stops", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -76,6 +63,30 @@ namespace CarPooling.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Locations",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OfferRideId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Locations", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Locations_OfferedRides_OfferRideId",
+                        column: x => x.OfferRideId,
+                        principalTable: "OfferedRides",
+                        principalColumn: "OfferRideId");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Locations_OfferRideId",
+                table: "Locations",
+                column: "OfferRideId");
         }
 
         /// <inheritdoc />
@@ -85,13 +96,13 @@ namespace CarPooling.Migrations
                 name: "BookedRides");
 
             migrationBuilder.DropTable(
-                name: "OfferedRides");
-
-            migrationBuilder.DropTable(
-                name: "Stops");
+                name: "Locations");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "OfferedRides");
         }
     }
 }

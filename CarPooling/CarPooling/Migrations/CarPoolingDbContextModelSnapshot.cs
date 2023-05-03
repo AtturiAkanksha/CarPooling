@@ -68,6 +68,28 @@ namespace CarPooling.Migrations
                     b.ToTable("BookedRides");
                 });
 
+            modelBuilder.Entity("CarPooling.Models.Location", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<Guid?>("OfferRideId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("OfferRideId");
+
+                    b.ToTable("Locations");
+                });
+
             modelBuilder.Entity("CarPooling.Models.OfferRide", b =>
                 {
                     b.Property<Guid>("OfferRideId")
@@ -113,23 +135,6 @@ namespace CarPooling.Migrations
                     b.ToTable("OfferedRides");
                 });
 
-            modelBuilder.Entity("CarPooling.Models.Stop", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Stops");
-                });
-
             modelBuilder.Entity("CarPooling.Models.User", b =>
                 {
                     b.Property<Guid>("id")
@@ -147,6 +152,18 @@ namespace CarPooling.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("CarPooling.Models.Location", b =>
+                {
+                    b.HasOne("CarPooling.Models.OfferRide", null)
+                        .WithMany("stops")
+                        .HasForeignKey("OfferRideId");
+                });
+
+            modelBuilder.Entity("CarPooling.Models.OfferRide", b =>
+                {
+                    b.Navigation("stops");
                 });
 #pragma warning restore 612, 618
         }

@@ -81,14 +81,14 @@ namespace CarPooling.Controllers
             if (existingUser != null && existingUser.password == user.password)
             {
                 var token = GenerateToken();
-               response =   Ok(new{token});
+                response =   Ok(new{token});
                 return response;
             }
             else if (existingUser != null && existingUser.password != user.password)
             {
                 return BadRequest("incorrect password");
             }
-            return BadRequest("User doesn't exists");
+            return NotFound("User doesn't exists");
             
         }
 

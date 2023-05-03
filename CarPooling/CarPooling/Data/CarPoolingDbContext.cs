@@ -16,5 +16,5 @@ public partial class CarPoolingDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
     public virtual DbSet<OfferRide> OfferedRides { get; set; }
     public virtual DbSet<BookRide> BookedRides { get; set; }
-    public virtual DbSet<Stop> Stops { get; set; }
+    public virtual DbSet<Location> Locations { get; set; }
 }
