@@ -16,6 +16,7 @@ export class LogInComponent {
   logIn:any='/assets/images/logIn.png/';
   validLogin:Boolean =true;
   errormessage: string;
+  currentUser:User;
 
   constructor(private authService: authService, private router:Router) {
   }
@@ -30,6 +31,7 @@ export class LogInComponent {
     this.authService.logInUser(user).subscribe({
      next:(res) => {
       this.validLogin;
+      localStorage.setItem('user',JSON.stringify(user));
       this.router.navigate(['/home'])
      },
      error:(err:HttpErrorResponse) =>{this.errormessage = err.error ;

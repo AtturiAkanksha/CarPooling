@@ -1,7 +1,7 @@
 <div class="d-flex">
-    <img [src]="logo" class="logo" alt="logo">
+    <img [src]="logo" (click)="onLogoClick()" class="logo" alt="logo">
     <div class="d-flex">
-        <h1 class="header-title"><b>John Wills</b></h1>
+        <h1 class="header-title"><b>{{username}}</b></h1>
         <div class="div-right">
         <img [src]="user" class="image" alt="user" (click)="onProfileCilck()">
         </div>
@@ -10,5 +10,5 @@
 <div [hidden]="isHide" class="hidden">
     <div class="option" >profile</div>
     <div class="option" (click)="onMyridesClick()" >my rides</div>
-    <div class="option" >logout</div>
+    <div class="option"(click)="onLogoutClick()">logout</div>
 </div>

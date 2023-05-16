@@ -9,16 +9,24 @@
                 </div>
                 <form [formGroup]="offerRideForm">
                     <div class="form-group">
-                    <label class="text-small"  for="from">From:</label><br>
-                    <input class="" id="startPoint" #from name="from" type="text"  formControlName="startPoint" required><br><br>
+                        <label class="text-small" for="startPoint">From:</label><br>
+                        <input id="startPoint" class="form-control" name="startPoint" type="text"
+                            formControlName="startPoint" required /><br><br>
                     </div>
-                    <div *ngIf="isNextClicked && offerRideForm.get('from')?.errors?.['required']" class="error-message" >Error! field empty</div>
+                    <div *ngIf="isFormSubmitted && offerRideForm.get('from')?.errors?.['required']"
+                        class="error-message">Error! field empty</div>
                     <label class="text-small" for="to">To:</label><br>
-                    <input class="" id="endPoint" type="text" formControlName="endPoint" required><br><br>
+                    <input class="form-control" id="endPoint" type="text" formControlName="endPoint" required><br><br>
                     <label class="text-small" for="date">Date:</label><br>
-                    <input class="" id="date" type="date" formControlName="date" required><br><br>
-                    <p for="time" class="text-small">Time:</p><br>
-                    <button type="button" *ngFor="let timeSlot of timeSlots" class="button text-small" [ngClass]="[buttonIsactive ? 'button':'background-violet']" (click)="clickTimeSlot(timeSlot)">{{timeSlot}}</button><br>
+                    <input  type="date" class="form-control" formControlName="date" required><br><br>
+                    <div class="d-large">
+                        <p class="text-small">Time:</p>
+                        <div class="div-bottom">
+                            <div class="div-radio-button background-white" *ngFor="let timeSlot of timeSlotsArray">
+                            <input type="radio" class="button form-control radio-button text-small" [ngClass]="{'background-white':toggled ,'background-purple': !toggled}"  (click)="clickTimeSlot(timeSlot.timeSlot)">{{timeSlot.timeSlot}}<br>
+                    </div>
+                    </div>
+                </div>
                     <h1 (click)="onNextClick()">Next>></h1>
                 </form>
             </div>
@@ -28,23 +36,29 @@
                     <p>we get you the matches asap!</p>
                 </div>
                 <form [formGroup]="offerRideForm">
-                    <label class="text-small" for="stop1" >Stop1:</label><br>
-                    <input class="" id="stop1" type="text" formControlName="stop1" required><br><br>
-                    <label class="text-small" for="stop2">Stop2:</label><br>
-                    <input class="" id="stop2" type="text" formControlName="stop2" required><br><br>
-                    <label class="text-small" for="stop3">Stop3:</label><br>
-                    <input class="" id="stop3" type="text" formControlName="stop3" required><br><br>
+                    <label class="text-small " for="stop1">Stop1 (Optional):</label><br>
+                    <input class="form-control" id="stop1" type="text" formControlName="stop1" required><br><br>
+                    <label class="text-small" for="stop2">Stop2 (Optional):</label><br>
+                    <input class="form-control" id="stop2" type="text" formControlName="stop2" required><br><br>
+                    <label class="text-small" for="stop3">Stop3 (Optional):</label><br>
+                    <input class="form-control" id="stop3" type="text" formControlName="stop3" required><br><br>
                     <div class="d-flex">
                         <p class="text-small">Available seats:</p><br>
                         <p class="text-small">price</p>
                     </div>
                     <div class="d-flex ">
+                        <div class="grid">
+                            <div class="div-button button-circle  background-white"  *ngFor="let seats of noOfSeats">
+                            <input type="radio" class=" radio-button form-control " [ngClass]="{'background-white':toggled ,'background-purple': !toggled}"  (click)="clickSeats(seats.seats)" >{{seats.seats}}
+                        </div> 
+                        </div>
                         <div>
-                    <button type="button" *ngFor="let seats of noOfSeats" class="button-circle text-small" (click)="clickSeats(seats)" name="button">{{seats}}</button>
+                            <input class="" id="price" type="text" formControlName="price" required><br><br>
+                            <div *ngIf="isFormSubmitted && offerRideForm.get('price')?.errors?.['required']"
+                                class="error-message">Error! field empty</div>
+                        </div>
                     </div>
-                    <input class="" id="price" type="text" formControlName="price" required><br><br>
-                    </div>
-                    <button type="button" class="button text-large" id="submit" (click)="OfferRide()">submit</button>
+                    <button type="button" class="button text-large" id="submit" (click)="submitForm()">submit</button>
                 </form>
 
             </div>
