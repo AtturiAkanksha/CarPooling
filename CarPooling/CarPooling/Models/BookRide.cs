@@ -10,6 +10,6 @@ public partial class BookRide
     public string EndPoint { get; set; } = null!;
     public string Date { get; set; } = null!;
     public string TimeSlot { get; set; } = null!;
-    public int Seats { get; set; } = 0;
+    public int Seats { get; set; }
     public string Price { get; set; } = null!;
 }

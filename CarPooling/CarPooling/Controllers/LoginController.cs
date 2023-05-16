@@ -37,9 +37,12 @@ namespace CarPooling.Controllers
             {
                 return BadRequest("email already exists");
             }
+            else
+            {
                 await dbContext.Users.AddAsync(user);
                 await dbContext.SaveChangesAsync();
                 return Ok(user);
+            }
         }
         [HttpGet]
         [Route("getUser")]
