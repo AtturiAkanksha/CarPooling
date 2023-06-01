@@ -11,23 +11,45 @@
                     <div class="form-group">
                         <label class="text-small" for="startPoint">From:</label><br>
                         <input id="startPoint" class="form-control" name="startPoint" type="text"
-                            formControlName="startPoint" required /><br><br>
+                            formControlName="startPoint" required />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-circle startIcon " viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                              </svg>
+                            <div class="columm-class">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                  </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                  </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                  </svg>
+                            </div>
+                             <br><br>
                     </div>
                     <div *ngIf="isFormSubmitted && offerRideForm.get('from')?.errors?.['required']"
                         class="error-message">Error! field empty</div>
                     <label class="text-small" for="to">To:</label><br>
-                    <input class="form-control" id="endPoint" type="text" formControlName="endPoint" required><br><br>
+                    <input class="form-control" id="endPoint" type="text" formControlName="endPoint" required>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-geo-alt-fill destinationIcon" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                      </svg><br><br>
                     <label class="text-small" for="date">Date:</label><br>
                     <input  type="date" class="form-control" formControlName="date" required><br><br>
                     <div class="d-large">
                         <p class="text-small">Time:</p>
                         <div class="div-bottom">
-                            <div class="div-radio-button background-white" *ngFor="let timeSlot of timeSlotsArray">
-                            <input type="radio" class="button form-control radio-button text-small" [ngClass]="{'background-white':toggled ,'background-purple': !toggled}"  (click)="clickTimeSlot(timeSlot.timeSlot)">{{timeSlot.timeSlot}}<br>
-                    </div>
+                            <div *ngFor="let timeSlot of timeSlotsArray">
+                                <label  class="div-radio-button"  for="{{timeSlot.timeSlot}}">
+                            <input type="radio" formControlName="timeSlot" class="" id="{{timeSlot.timeSlot}}" (change)="onRadioChange($event)">{{timeSlot.timeSlot}}
+                        </label>
+                    </div> 
+                     <p> {{timeSlotSelected}}</p>
+                     <h1 (click)="onNextClick()">Next>></h1>
                     </div>
                 </div>
-                    <h1 (click)="onNextClick()">Next>></h1>
+                    
                 </form>
             </div>
             <div class="flex-box" [hidden]="isShowDiv">
@@ -36,24 +58,31 @@
                     <p>we get you the matches asap!</p>
                 </div>
                 <form [formGroup]="offerRideForm">
-                    <label class="text-small " for="stop1">Stop1 (Optional):</label><br>
-                    <input class="form-control" id="stop1" type="text" formControlName="stop1" required><br><br>
-                    <label class="text-small" for="stop2">Stop2 (Optional):</label><br>
-                    <input class="form-control" id="stop2" type="text" formControlName="stop2" required><br><br>
-                    <label class="text-small" for="stop3">Stop3 (Optional):</label><br>
-                    <input class="form-control" id="stop3" type="text" formControlName="stop3" required><br><br>
+                    <label class="text-small " for="stop1">stop1 (Optional):</label><br>
+                    <input class="form-control" id="stop1" formControlName="stop" type="text" >
+                    
+                    <div *ngFor="let _ of [].constructor(displayStop); let i = index">
+                    <label class="text-small " for="stop2">Stop{{i+2}} (Optional):</label><br>
+                    <input class="form-control" id="stop2" formControlName="additionalStop"  type="text">
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"   fill="currentColor" (click)="incrementStop()" class="bi bi-plus addIcon" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>
                     <div class="d-flex">
-                        <p class="text-small">Available seats:</p><br>
+                        <p class="text-small">Available 
+                            seats:</p><br>
                         <p class="text-small">price</p>
                     </div>
                     <div class="d-flex ">
                         <div class="grid">
                             <div class="div-button button-circle  background-white"  *ngFor="let seats of noOfSeats">
-                            <input type="radio" class=" radio-button form-control " [ngClass]="{'background-white':toggled ,'background-purple': !toggled}"  (click)="clickSeats(seats.seats)" >{{seats.seats}}
+                                <label  class=""  for="{{seats.seats}}">
+                            <input type="radio" class=" radio-button form-control "  formControlName="seats" id="{{seats.seats}}" [ngClass]="{'background-white':toggled ,'background-purple': !toggled}"  (change)="clickSeats($event)" >{{seats.seats}}
+                        </label>
                         </div> 
                         </div>
                         <div>
-                            <input class="" id="price" type="text" formControlName="price" required><br><br>
+                            <input class="form-control" id="price" type="text" formControlName="price" required><br><br>
                             <div *ngIf="isFormSubmitted && offerRideForm.get('price')?.errors?.['required']"
                                 class="error-message">Error! field empty</div>
                         </div>

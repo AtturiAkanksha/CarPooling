@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import{HttpClientModule} from '@angular/common/http'
+import{HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -13,6 +13,7 @@ import { OfferComponent } from './components/offer/offer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { authService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { HeadersInterceptor } from './headers.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     authService,
     AuthGuard,
+    {provide:HTTP_INTERCEPTORS , useClass:HeadersInterceptor , multi:true}
   ],
   bootstrap: [AppComponent]
 })

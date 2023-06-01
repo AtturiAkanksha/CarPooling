@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/user';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LoginObject } from 'src/app/loginObject';
 
 @Component({
   selector: 'app-log-in',
@@ -31,8 +32,9 @@ export class LogInComponent {
     this.authService.logInUser(user).subscribe({
      next:(res) => {
       this.validLogin;
-      localStorage.setItem('user',JSON.stringify(user));
       this.router.navigate(['/home'])
+      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('login-object',JSON.stringify(res));
      },
      error:(err:HttpErrorResponse) =>{this.errormessage = err.error ;
     this.validLogin = false} 
