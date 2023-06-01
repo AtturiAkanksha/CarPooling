@@ -1,8 +1,12 @@
-﻿namespace CarPooling.Models;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
+
+namespace CarPooling.Models;
 
 public partial class User
 {
-    public int id { get; set=0; }
+    [Key]
+    public int id { get; set; }
     public string email { get; set; } = null!;
     public string password { get; set; } = null!;
 }

@@ -2,7 +2,7 @@
 {
     public class BookRideRequest
     {
-        public string UserId { get; set; } = null!;
+        public int UserId { get; set; }
         public string UserName { get; set; } = null!;
         public string OfferRideId { get; set; } = null!;
         public string StartPoint { get; set; } = null!;

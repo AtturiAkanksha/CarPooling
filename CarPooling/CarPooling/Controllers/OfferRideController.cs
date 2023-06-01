@@ -1,5 +1,6 @@
 ﻿using CarPooling.Data;
 using CarPooling.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +29,7 @@ namespace CarPooling.Controllers
 
         [HttpPost]
         [Route("offerRide")]
-        public async Task<IActionResult> offerRide(OfferRideRequest offerRideRequest)
+        public async Task<IActionResult> OfferRide(OfferRideRequest offerRideRequest)
         {
             var offerRide = new OfferRide()
             {
@@ -40,8 +41,8 @@ namespace CarPooling.Controllers
                 TimeSlot = offerRideRequest.TimeSlot,
                 Date = offerRideRequest.Date,
                 Price = offerRideRequest.Price,
+                stops = offerRideRequest.stops,
                 Seats = offerRideRequest.Seats,
-                IsActive= offerRideRequest.IsActive,
             };
             await dbContext.OfferedRides.AddAsync(offerRide);
             await dbContext.SaveChangesAsync();

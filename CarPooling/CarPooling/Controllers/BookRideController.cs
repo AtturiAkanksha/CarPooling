@@ -1,5 +1,6 @@
 ﻿using CarPooling.Data;
 using CarPooling.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +29,7 @@ namespace CarPooling.Controllers
        
         [HttpPost]
         [Route("bookRide")]
-        public async Task<IActionResult> bookRide(BookRideRequest bookRideRequest)
+        public async Task<IActionResult> BookRide(BookRideRequest bookRideRequest)
         {
             var bookRide = new BookRide()
             {

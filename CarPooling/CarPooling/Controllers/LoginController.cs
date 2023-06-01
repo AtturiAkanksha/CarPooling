@@ -28,9 +28,8 @@ namespace CarPooling.Controllers
         {
             var user = new User()
             {
-                id = Guid.NewGuid(),
                 email = addUserRequest.email,
-                password = addUserRequest.password
+                password = addUserRequest.password,
             };
             var isEmailAlreadyExists =  dbContext.Users.Any(x => x.email == user.email);
             if (isEmailAlreadyExists)
@@ -44,13 +43,14 @@ namespace CarPooling.Controllers
                 return Ok(user);
             }
         }
+
         [HttpGet]
         [Route("getUser")]
         public async Task<IActionResult> GetUser()
         {
             return Ok(await dbContext.Users.ToListAsync());
         }
-        
+
         [HttpGet]
         [Route("getUsers")]
         public async Task<IActionResult> getUsers()
@@ -64,7 +64,7 @@ namespace CarPooling.Controllers
             var credentials = new SigningCredentials(securitykey, SecurityAlgorithms.HmacSha256);   
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt: Andience"],null,
-                expires:DateTime.Now.AddDays(1),
+                expires:DateTime.Now.AddDays(5),
                 signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
@@ -75,19 +75,18 @@ namespace CarPooling.Controllers
         public async Task<IActionResult> Login(UserRequest addUserRequest)
         {
             IActionResult response = Unauthorized();
-            var user = new User()
-            {
-                email = addUserRequest.email,
-                password = addUserRequest.password
-            };
-            var existingUser = dbContext.Users.FirstOrDefault(x => x.email == user.email);
-            if (existingUser != null && existingUser.password == user.password)
-            {
-                var token = GenerateToken();
-                response =   Ok(new{token});
+            var existingUser = dbContext.Users.FirstOrDefault(x => x.email == addUserRequest.email);
+            if (existingUser != null && existingUser.password == addUserRequest.password)
+            { 
+               var  token = GenerateToken();
+                var loginObject = new LoginObject {
+                    NewToken =Convert.ToString( new {token}),
+                    UserId = existingUser.id
+                };
+                response =   Ok(loginObject);
                 return response;
             }
-            else if (existingUser != null && existingUser.password != user.password)
+            else if (existingUser != null && existingUser.password != addUserRequest.password)
             {
                 return BadRequest("incorrect password");
             }

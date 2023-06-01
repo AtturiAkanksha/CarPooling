@@ -55,9 +55,8 @@ namespace CarPooling.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -76,16 +75,11 @@ namespace CarPooling.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<Guid?>("OfferRideId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
-
-                    b.HasIndex("OfferRideId");
 
                     b.ToTable("Locations");
                 });
@@ -104,9 +98,6 @@ namespace CarPooling.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Price")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -122,11 +113,14 @@ namespace CarPooling.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("stops")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -137,9 +131,11 @@ namespace CarPooling.Migrations
 
             modelBuilder.Entity("CarPooling.Models.User", b =>
                 {
-                    b.Property<Guid>("id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -152,18 +148,6 @@ namespace CarPooling.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("CarPooling.Models.Location", b =>
-                {
-                    b.HasOne("CarPooling.Models.OfferRide", null)
-                        .WithMany("stops")
-                        .HasForeignKey("OfferRideId");
-                });
-
-            modelBuilder.Entity("CarPooling.Models.OfferRide", b =>
-                {
-                    b.Navigation("stops");
                 });
 #pragma warning restore 612, 618
         }
