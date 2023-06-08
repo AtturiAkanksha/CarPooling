@@ -1,8 +1,8 @@
-﻿using CarPooling.Models;
+﻿using CarPooling.Data.Models;
 using CarPooling.Repositories;
-using CarPooling.Interfaces;
 using Microsoft.Extensions.Configuration;
 using CarPooling.RequestDTOs;
+using CarPooling.Services.Contracts;
 using CarPooling.ResponseDTOs;
 
 namespace CarPooling.Services 
@@ -39,19 +39,26 @@ namespace CarPooling.Services
 
         public  async Task<LoginObject> Login(UserRequest addUserRequest)
         {
-            var existingUser = await _userRepository.Login(addUserRequest);
-            if (existingUser != null && existingUser.password == addUserRequest.password)
+            try
             {
-                var token =_tokenService.GenerateToken();
-                var loginObject = new LoginObject
+                var existingUser = await _userRepository.Login(addUserRequest);
+                if (existingUser != null && existingUser.password == addUserRequest.password)
                 {
-                    NewToken = Convert.ToString(new{token}),
-                    UserId = existingUser.id
-                };
-                var response =loginObject;
-                return response;
+                    var token = _tokenService.GenerateToken();
+                    var loginObject = new LoginObject
+                    {
+                        NewToken = Convert.ToString(new { token }),
+                        UserId = existingUser.id
+                    };
+                    var response = loginObject;
+                    return response;
+                }
+                throw new Exception();
             }
-            return null;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
     }

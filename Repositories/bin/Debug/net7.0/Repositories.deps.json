@@ -129,18 +129,10 @@
       },
       "Data/1.0.0": {
         "dependencies": {
-          "Models": "1.0.0"
-        },
-        "runtime": {
-          "Data.dll": {}
-        }
-      },
-      "Models/1.0.0": {
-        "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.5"
         },
         "runtime": {
-          "Models.dll": {}
+          "Data.dll": {}
         }
       },
       "RequestDTOs/1.0.0": {
@@ -150,7 +142,7 @@
       },
       "ResponseDTOs/1.0.0": {
         "runtime": {
-          "ResponseDTOs.dll": {}
+          "responseDTOs.dll": {}
         }
       }
     }
@@ -239,11 +231,6 @@
       "hashPath": "microsoft.extensions.primitives.7.0.0.nupkg.sha512"
     },
     "Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

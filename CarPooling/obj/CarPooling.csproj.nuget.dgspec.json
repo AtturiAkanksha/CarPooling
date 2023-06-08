@@ -32,9 +32,6 @@
               "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\Data.csproj": {
                 "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\Data.csproj"
               },
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\Interfaces.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\Interfaces.csproj"
-              },
               "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Repositories\\Repositories.csproj": {
                 "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Repositories\\Repositories.csproj"
               },
@@ -100,7 +97,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -134,130 +131,6 @@
         "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\akanksha.a\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\akanksha.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\Interfaces.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\Interfaces.csproj",
-        "projectName": "Interfaces",
-        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\Interfaces.csproj",
-        "packagesPath": "C:\\Users\\akanksha.a\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\akanksha.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj"
-              },
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\RequestDTOs\\RequestDTOs.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\RequestDTOs\\RequestDTOs.csproj"
-              },
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj",
-        "projectName": "Models",
-        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\akanksha.a\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\akanksha.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -341,8 +214,8 @@
               "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\RequestDTOs\\RequestDTOs.csproj": {
                 "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\RequestDTOs\\RequestDTOs.csproj"
               },
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj"
+              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj": {
+                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj"
               }
             }
           }
@@ -431,14 +304,14 @@
         }
       }
     },
-    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj": {
+    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj",
+        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj",
         "projectName": "ResponseDTOs",
-        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj",
+        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj",
         "packagesPath": "C:\\Users\\akanksha.a\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\obj\\",
+        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\akanksha.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -510,14 +383,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\Interfaces.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Interfaces\\Interfaces.csproj"
-              },
-              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj"
-              },
               "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Repositories\\Repositories.csproj": {
                 "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Repositories\\Repositories.csproj"
+              },
+              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj": {
+                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj"
               }
             }
           }

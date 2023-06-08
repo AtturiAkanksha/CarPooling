@@ -1,26 +1,27 @@
-﻿using CarPooling.Data;
-using CarPooling.ResponseDTOs;
-using CarPooling.Models;
+﻿using CarPooling.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using CarPooling.RequestDTOs;
+using CarPooling.Data;
+using CarPooling.ResponseDTOs;
 
 namespace CarPooling.Repositories
 {
-
     public class OfferRideRepository
     {
         private readonly CarPoolingDbContext dbContext;
+
         public OfferRideRepository(CarPoolingDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
+
         public async Task<OfferRide> OfferRide(OfferRide offerRide)
         {
             await dbContext.OfferedRides.AddAsync(offerRide);
             await dbContext.SaveChangesAsync();
             return offerRide;
         }
+
         public async Task<List<OfferRide>> GetAllOfferedRides()
         {
             List<OfferRide> getAllOfferedRides = await dbContext.OfferedRides.ToListAsync();

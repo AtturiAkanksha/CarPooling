@@ -202,26 +202,13 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Data.dll": {}
-        }
-      },
-      "Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.5"
         },
         "compile": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/Data.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/Data.dll": {}
         }
       },
       "RequestDTOs/1.0.0": {
@@ -562,11 +549,6 @@
       "path": "../Data/Data.csproj",
       "msbuildProject": "../Data/Data.csproj"
     },
-    "Models/1.0.0": {
-      "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
-    },
     "RequestDTOs/1.0.0": {
       "type": "project",
       "path": "../RequestDTOs/RequestDTOs.csproj",
@@ -574,8 +556,8 @@
     },
     "ResponseDTOs/1.0.0": {
       "type": "project",
-      "path": "../ResponseDTOs/ResponseDTOs.csproj",
-      "msbuildProject": "../ResponseDTOs/ResponseDTOs.csproj"
+      "path": "../responseDTOs/ResponseDTOs.csproj",
+      "msbuildProject": "../responseDTOs/ResponseDTOs.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -618,8 +600,8 @@
             "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\RequestDTOs\\RequestDTOs.csproj": {
               "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\RequestDTOs\\RequestDTOs.csproj"
             },
-            "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj": {
-              "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj"
+            "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj": {
+              "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj"
             }
           }
         }

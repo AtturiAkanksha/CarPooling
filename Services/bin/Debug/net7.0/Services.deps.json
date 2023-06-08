@@ -8,11 +8,10 @@
     ".NETCoreApp,Version=v7.0": {
       "Services/1.0.0": {
         "dependencies": {
-          "Interfaces": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "Microsoft.IdentityModel.Tokens": "6.30.1",
-          "Models": "1.0.0",
           "Repositories": "1.0.0",
+          "ResponseDTOs": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "6.30.1"
         },
         "runtime": {
@@ -220,28 +219,10 @@
       "System.Text.Json/4.7.2": {},
       "Data/1.0.0": {
         "dependencies": {
-          "Models": "1.0.0"
-        },
-        "runtime": {
-          "Data.dll": {}
-        }
-      },
-      "Interfaces/1.0.0": {
-        "dependencies": {
-          "Models": "1.0.0",
-          "RequestDTOs": "1.0.0",
-          "ResponseDTOs": "1.0.0"
-        },
-        "runtime": {
-          "Interfaces.dll": {}
-        }
-      },
-      "Models/1.0.0": {
-        "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.5"
         },
         "runtime": {
-          "Models.dll": {}
+          "Data.dll": {}
         }
       },
       "Repositories/1.0.0": {
@@ -261,7 +242,7 @@
       },
       "ResponseDTOs/1.0.0": {
         "runtime": {
-          "ResponseDTOs.dll": {}
+          "responseDTOs.dll": {}
         }
       }
     }
@@ -448,16 +429,6 @@
       "hashPath": "system.text.json.4.7.2.nupkg.sha512"
     },
     "Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Interfaces/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

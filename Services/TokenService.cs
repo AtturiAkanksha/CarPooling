@@ -1,7 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using CarPooling.Interfaces;
+using CarPooling.Services.Contracts;
 using Microsoft.Extensions.Configuration;
 
 namespace CarPooling.Services
@@ -9,10 +9,12 @@ namespace CarPooling.Services
     public class TokenService: ITokenService
     {
         IConfiguration _config;
+
         public TokenService(IConfiguration configuration)
         {
             this._config = configuration;
         }
+
         public string GenerateToken()
         {
             var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["jwt:key"]));

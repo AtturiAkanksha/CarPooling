@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj": {}
+    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj": {
+    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj",
+        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj",
         "projectName": "ResponseDTOs",
-        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\ResponseDTOs.csproj",
+        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\ResponseDTOs.csproj",
         "packagesPath": "C:\\Users\\akanksha.a\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\ResponseDTOs\\obj\\",
+        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\responseDTOs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\akanksha.a\\AppData\\Roaming\\NuGet\\NuGet.Config",

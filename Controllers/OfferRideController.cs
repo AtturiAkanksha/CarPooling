@@ -9,7 +9,7 @@ namespace CarPooling.Controllers
 {
     [ApiController]
     [Route("Api/[controller]")]
-    public class OfferRidecontroller : Controller
+    public class OfferRidecontroller : ControllerBase
     {
         private readonly OfferRideService _offerRideService;
         private IConfiguration _config;

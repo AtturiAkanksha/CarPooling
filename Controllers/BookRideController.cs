@@ -19,7 +19,6 @@ namespace CarPooling.Controllers
         }
 
         [HttpGet]
-        [Route("getBookedRides")]
         public async Task<IActionResult> GetBookedRides()
         {
             List<BookRide> getBookedRides =await this._bookRideService.GetBookedRides();
@@ -27,7 +26,6 @@ namespace CarPooling.Controllers
         }
        
         [HttpPost]
-        [Route("bookRide")]
         public async Task<IActionResult> BookRide(BookRideRequest bookRideRequest)
         {
             BookRide bookedRide =await this._bookRideService.BookRide(bookRideRequest);

@@ -1,5 +1,5 @@
 ﻿using CarPooling.Data;
-using CarPooling.Models;
+using CarPooling.Data.Models;
 using CarPooling.RequestDTOs;
 
 namespace CarPooling.Repositories
@@ -7,6 +7,7 @@ namespace CarPooling.Repositories
     public class UserRepository
     {
         private readonly CarPoolingDbContext dbContext;
+
         public UserRepository(CarPoolingDbContext dbContext )
         {
             this.dbContext = dbContext;
@@ -33,7 +34,7 @@ namespace CarPooling.Repositories
 
         public async Task<User> Login(UserRequest addUserRequest )
         {
-            User existingUser = dbContext.Users.FirstOrDefault(x => x.email == addUserRequest.email);
+            User? existingUser = dbContext.Users.FirstOrDefault(x => x.email == addUserRequest.email);
             return existingUser;
         }
 

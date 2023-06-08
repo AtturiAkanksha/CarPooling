@@ -1,17 +1,19 @@
-﻿using CarPooling.Models;
-using CarPooling.RequestDTOs;
+﻿using CarPooling.RequestDTOs;
 using CarPooling.Repositories;
-using CarPooling.Interfaces;
+using CarPooling.Services.Contracts;
+using CarPooling.Data.Models;
 
 namespace CarPooling.Services
 {
     public class BookRideService:IBookRideService
     {
         private readonly BookRideRepository _bookRideRepository;
+
         public BookRideService(BookRideRepository bookRideRepository)
         {
             this._bookRideRepository = bookRideRepository;
         }
+
         public async Task<List<BookRide>> GetBookedRides()
         {
            List<BookRide> getBookedRides = await this._bookRideRepository.GetBookedRides();

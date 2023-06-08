@@ -1,14 +1,15 @@
-﻿using CarPooling.Models;
+﻿using CarPooling.Data.Models;
 using CarPooling.Repositories;
 using CarPooling.RequestDTOs;
 using CarPooling.ResponseDTOs;
-using CarPooling.Interfaces;
+using CarPooling.Services.Contracts;
 
 namespace CarPooling.Services
 {
     public class OfferRideService:IOfferRideService
     {
         private readonly OfferRideRepository _offerRideRepository;
+
         public OfferRideService(OfferRideRepository offerRideRepository)
         {
             this._offerRideRepository = offerRideRepository;

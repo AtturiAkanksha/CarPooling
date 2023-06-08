@@ -197,19 +197,6 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
-      },
-      "Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.5"
-        },
-        "compile": {
-          "bin/placeholder/Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Models.dll": {}
-        }
       }
     }
   },
@@ -523,16 +510,11 @@
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Models/1.0.0": {
-      "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Models >= 1.0.0"
+      "Microsoft.EntityFrameworkCore >= 7.0.5"
     ]
   },
   "packageFolders": {
@@ -561,11 +543,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Models\\Models.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -577,6 +555,12 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.5, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
