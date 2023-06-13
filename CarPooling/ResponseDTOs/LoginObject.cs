@@ -1,6 +1,6 @@
 ﻿namespace CarPooling.API.ResponseDTOs
 {
-    public class LoginObject
+    public class DataObject
     {
         public int UserId { get; set; }
         public string  Token { get; set; }

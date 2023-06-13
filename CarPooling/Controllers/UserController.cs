@@ -50,18 +50,18 @@ namespace CarPooling.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        [ProducesResponseType(typeof(LoginObject), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DataObject), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUser([FromBody] UserRequest userRequest)
         {
             try
             {
                 User user = await _userService.GetUser(_mapper.Map<User>(userRequest));
-                var loginObject = new LoginObject
+                var dataObject = new DataObject
                 {
                     Token = _tokenService.GenerateToken(),
                     UserId = user.Id
                 };
-                return Ok(loginObject);
+                return Ok(dataObject);
             }
             catch (Exception ex)
             {
