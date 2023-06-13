@@ -3,6 +3,6 @@
     public class LoginObject
     {
         public int UserId { get; set; }
-        public string?  NewToken { get; set; }
+        public string?  Token { get; set; }
     }
 }

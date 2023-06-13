@@ -1,39 +1,42 @@
-﻿using CarPooling.Data.Models;
-using CarPooling.Services;
-using Microsoft.AspNetCore.Mvc;
-using CarPooling.RequestDTOs;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Carpooling.DomainModels;
+using CarPooling.API.RequestDTOs;
+using AutoMapper;
+using CarPooling.Services.Contracts;
 
-namespace CarPooling.Controllers
+namespace CarPooling.API.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("Api/[controller]")]
-    public class BookRideController : Controller
+    public class BookRideController : ControllerBase
     {
-        private IConfiguration _config;
-        private readonly BookRideService _bookRideService;
+        private readonly IBookRideService _bookRideService;
+        private readonly IMapper _mapper;
 
-        public BookRideController( IConfiguration configuration, BookRideService bookRideService)
+        public BookRideController(IBookRideService bookRideService, IMapper mapper)
         {
-            _config = configuration;
             this._bookRideService = bookRideService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         [Route("getBookedRides")]
-        public async Task<IActionResult> GetBookedRides()
+        [ProducesResponseType(typeof(IEnumerable<BookRide>), StatusCodes.Status200OK)]
+        public IEnumerable<BookRide> GetBookedRides()
         {
-            List<BookRide> getBookedRides =await this._bookRideService.GetBookedRides();
-            return Ok(getBookedRides);
+            List<BookRide> getBookedRides = (List<BookRide>)this._bookRideService.GetBookedRides();
+            return getBookedRides;
         }
-       
+
         [HttpPost]
         [Route("bookRide")]
+        [ProducesResponseType(typeof(BookRide), StatusCodes.Status200OK)]
         public async Task<IActionResult> BookRide(BookRideRequest bookRideRequest)
         {
-            BookRide bookedRide =await this._bookRideService.BookRide(bookRideRequest);
-                return Ok(bookedRide);
+            BookRide bookedRide = await this._bookRideService.BookRide(_mapper.Map<BookRide>(bookRideRequest));
+            return Ok(bookedRide);
         }
     }
 }

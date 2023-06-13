@@ -1,21 +1,19 @@
-﻿using CarPooling.Data.Models;
-using CarPooling.Repositories;
-using CarPooling.RequestDTOs;
-using CarPooling.ResponseDTOs;
+﻿using Carpooling.Data.IRepository;
+using Carpooling.DomainModels;
 using CarPooling.Services.Contracts;
 
 namespace CarPooling.Services
 {
-    public class OfferRideService:IOfferRideService
+    public class OfferRideService : IOfferRideService
     {
-        private readonly OfferRideRepository _offerRideRepository;
+        private readonly IOfferRideRepository _offerRideRepository;
 
-        public OfferRideService(OfferRideRepository offerRideRepository)
+        public OfferRideService(IOfferRideRepository offerRideRepository)
         {
             this._offerRideRepository = offerRideRepository;
         }
 
-        public async Task<OfferRide> OfferRide(OfferRideRequest offerRideRequest)
+        public async Task<OfferRide> OfferRide(OfferRide offerRideRequest)
         {
             var offerRide = new OfferRide()
             {
@@ -27,23 +25,24 @@ namespace CarPooling.Services
                 TimeSlot = offerRideRequest.TimeSlot,
                 Date = offerRideRequest.Date,
                 Price = offerRideRequest.Price,
-                stops = offerRideRequest.stops,
+                Stops = offerRideRequest.Stops,
                 Seats = offerRideRequest.Seats,
             };
-            OfferRide getOfferRide =await  this._offerRideRepository.OfferRide(offerRide);
+            OfferRide getOfferRide = await this._offerRideRepository.OfferRide(offerRide);
             return getOfferRide;
         }
 
-        public async Task<List<OfferRide>> GetAllOfferedRides()
+        public IEnumerable<OfferRide> GetAllOfferedRides()
         {
-            List<OfferRide> getAllOfferedRides = await this._offerRideRepository.GetAllOfferedRides();
+            List<OfferRide> getAllOfferedRides = (List<OfferRide>)this._offerRideRepository.GetAllOfferedRides();
             return getAllOfferedRides;
         }
 
-        public async Task<List<OfferRideResponseDTO>> GetOfferedRides(OfferRideRequestDTO offerRideRequestDTO)
+        public async Task<List<OfferRide>> GetOfferedRides(OfferRide offerRide)
         {
-            List<OfferRideResponseDTO> getOfferedRides = await this._offerRideRepository.GetOfferedRides(offerRideRequestDTO);
-            return getOfferedRides;
+            List<OfferRide> _offerRides = await this._offerRideRepository.GetOfferedRides(offerRide);
+            return _offerRides;
         }
     }
 }
+

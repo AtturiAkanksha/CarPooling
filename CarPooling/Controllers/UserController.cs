@@ -1,67 +1,67 @@
-﻿using CarPooling.Data.Models ;
+﻿using CarPooling.DomainModels;
 using Microsoft.AspNetCore.Mvc;
-using CarPooling.RequestDTOs;
-using CarPooling.ResponseDTOs;
-using CarPooling.Services;
+using CarPooling.API.RequestDTOs;
+using CarPooling.API.ResponseDTOs;
+using AutoMapper;
+using CarPooling.Services.Contracts;
 
-namespace CarPooling.Controllers
+namespace CarPooling.API.Controllers
 {
     [ApiController]
     [Route("Api/[controller]")]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
+        private readonly ITokenService _tokenService;
+        private readonly IMapper _mapper;
 
-        public UserController(UserService userService) {
+        public UserController(IUserService userService, IMapper mapper, ITokenService tokenService)
+        {
             _userService = userService;
+            _mapper = mapper;
+            _tokenService = tokenService;
         }
 
         [HttpPost]
         [Route("createUser")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> AddUser([FromBody] UserRequest user)
         {
             try
             {
-                return Ok(new ResponseBase<User>() { 
-                   Response =  await _userService.CreateUser(user),
-                   Message = "success"
+                return Ok(new ResponseBase<User>()
+                {
+                    Response = await _userService.CreateUser(_mapper.Map<User>(user)),
+                    Message = "success"
                 });
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(new ResponseBase<bool>() {
+                return Ok(new ResponseBase<bool>()
+                {
                     Response = false,
-                    Message = "unKonown"
+                    Message = ex.Message
                 });
 
             }
 
-        }
-
-        [HttpGet]
-        [Route("getUsers")]
-        public async Task<IActionResult> getUsers()
-        {
-            try
-            {
-             List<User> getUsers =await  _userService.GetUsers();
-                return Ok(getUsers);
-            }
-            catch (Exception ex) {
-                return Ok(ex.Message);
-            }
         }
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> LoginUser([FromBody] UserRequest user)
+        [ProducesResponseType(typeof(LoginObject), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetUser([FromBody] UserRequest userRequest)
         {
             try
             {
-               LoginObject loginObject=await  _userService.Login(user);
+                User user = await _userService.GetUser(_mapper.Map<User>(userRequest));
+                var loginObject = new LoginObject
+                {
+                    Token = _tokenService.GenerateToken(),
+                    UserId = user.Id
+                };
                 return Ok(loginObject);
-               
             }
             catch (Exception ex)
             {

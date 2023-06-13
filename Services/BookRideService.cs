@@ -1,27 +1,26 @@
-﻿using CarPooling.RequestDTOs;
-using CarPooling.Repositories;
-using CarPooling.Services.Contracts;
-using CarPooling.Data.Models;
+﻿using CarPooling.Services.Contracts;
+using Carpooling.DomainModels;
+using Carpooling.Data.IRepository;
 
 namespace CarPooling.Services
 {
-    public class BookRideService:IBookRideService
+    public class BookRideService : IBookRideService
     {
-        private readonly BookRideRepository _bookRideRepository;
+        private readonly IBookRideRepository _bookRideRepository;
 
-        public BookRideService(BookRideRepository bookRideRepository)
+        public BookRideService(IBookRideRepository bookRideRepository)
         {
             this._bookRideRepository = bookRideRepository;
         }
 
-        public async Task<List<BookRide>> GetBookedRides()
+        public IEnumerable<BookRide> GetBookedRides()
         {
-           List<BookRide> getBookedRides = await this._bookRideRepository.GetBookedRides();
+            List<BookRide> getBookedRides = (List<BookRide>)this._bookRideRepository.GetBookedRides();
             return getBookedRides;
 
         }
 
-        public async Task<BookRide> BookRide(BookRideRequest bookRideRequest)
+        public async Task<BookRide> BookRide(BookRide bookRideRequest)
         {
             var bookRide = new BookRide()
             {
@@ -36,9 +35,9 @@ namespace CarPooling.Services
                 Price = bookRideRequest.Price,
                 Seats = bookRideRequest.Seats,
             };
-                BookRide bookedRide =await this._bookRideRepository.BookRide(bookRide);
-                return bookedRide;
-            
+            BookRide bookedRide = await this._bookRideRepository.BookRide(bookRide);
+            return bookedRide;
+
         }
     }
 }

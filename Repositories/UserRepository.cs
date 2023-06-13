@@ -15,7 +15,7 @@ namespace CarPooling.Repositories
 
         public async Task<User> AddUser(User user)
         {
-                var isEmailAlreadyExists = dbContext.Users.Any(x => x.email == user.email);
+                var isEmailAlreadyExists = dbContext.Users.Any(x => x.Email == user.Email);
                 if (!isEmailAlreadyExists)
                 {
                     await dbContext.Users.AddAsync(user);
@@ -32,9 +32,9 @@ namespace CarPooling.Repositories
             return usersList;
         }
 
-        public async Task<User> Login(UserRequest addUserRequest )
+        public async Task<User> GetUser(UserRequest addUserRequest )
         {
-            User? existingUser = dbContext.Users.FirstOrDefault(x => x.email == addUserRequest.email);
+            User? existingUser = dbContext.Users.FirstOrDefault(x => x.Email == addUserRequest.Email);
             return existingUser;
         }
 

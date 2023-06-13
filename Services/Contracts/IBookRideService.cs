@@ -1,12 +1,11 @@
-﻿using CarPooling.Data.Models;
-using CarPooling.RequestDTOs;
+﻿using Carpooling.DomainModels;
 
 namespace CarPooling.Services.Contracts
 {
     public interface IBookRideService
     {
-        Task<List<BookRide>> GetBookedRides();
-        Task<BookRide> BookRide(BookRideRequest bookRideRequest);
+        public IEnumerable<BookRide> GetBookedRides();
+        Task<BookRide> BookRide(BookRide bookRideRequest);
 
     }
 }

@@ -1,13 +1,11 @@
-﻿using CarPooling.Data.Models;
-using CarPooling.RequestDTOs;
-using CarPooling.ResponseDTOs;
+﻿using Carpooling.DomainModels;
 
 namespace CarPooling.Services.Contracts
 {
     public interface IOfferRideService
     {
-         Task<OfferRide> OfferRide(OfferRideRequest offerRideRequest);
-        Task<List<OfferRide>> GetAllOfferedRides();
-        Task<List<OfferRideResponseDTO>> GetOfferedRides(OfferRideRequestDTO offerRideRequestDTO);
+        Task<OfferRide> OfferRide(OfferRide offerRideRequest);
+        IEnumerable<OfferRide> GetAllOfferedRides();
+        Task<List<OfferRide>> GetOfferedRides(OfferRide offerRide);
     }
 }

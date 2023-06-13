@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CarPooling.Services
 {
-    public class TokenService: ITokenService
+    public class TokenService : ITokenService
     {
         IConfiguration _config;
 
@@ -17,10 +17,10 @@ namespace CarPooling.Services
 
         public string GenerateToken()
         {
-            var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["jwt:key"]));
+            var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:key"]));
             var credentials = new SigningCredentials(securitykey, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt: Andience"], null,
+            var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Audience"], null,
                 expires: DateTime.Now.AddDays(5),
                 signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);

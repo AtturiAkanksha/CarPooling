@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\Carpooling.Data.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\Carpooling.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\Carpooling.Data.csproj",
+        "projectName": "Carpooling.Data",
+        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\Carpooling.Data.csproj",
+        "packagesPath": "C:\\Users\\akanksha.a\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\akanksha.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\DomainModels\\Carpooling.DomainModels.csproj": {
+                "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\DomainModels\\Carpooling.DomainModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\DomainModels\\Carpooling.DomainModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\DomainModels\\Carpooling.DomainModels.csproj",
+        "projectName": "Carpooling.DomainModels",
+        "projectPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\DomainModels\\Carpooling.DomainModels.csproj",
+        "packagesPath": "C:\\Users\\akanksha.a\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\akanksha.a\\Downloads\\CarPooling-backend\\CarPooling\\DomainModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\akanksha.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

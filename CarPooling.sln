@@ -3,17 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarPooling", "CarPooling\CarPooling.csproj", "{CC21F294-79BD-49D3-8899-05B0E2A28FCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarPooling.API", "CarPooling\CarPooling.API.csproj", "{CC21F294-79BD-49D3-8899-05B0E2A28FCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{DE5996C1-57D2-4FB5-858A-2F0A5AD27492}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carpooling.Data", "Data\Carpooling.Data.csproj", "{DE5996C1-57D2-4FB5-858A-2F0A5AD27492}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{7F2B7B17-9B5E-49C5-8D94-1E7DAFD06984}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carpooling.Services", "Services\Carpooling.Services.csproj", "{7F2B7B17-9B5E-49C5-8D94-1E7DAFD06984}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestDTOs", "RequestDTOs\RequestDTOs.csproj", "{ED64A593-925B-4C35-B8DB-81A3EC87ECFA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{7D518141-8286-43EC-B66C-5F176DEED806}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResponseDTOs", "responseDTOs\ResponseDTOs.csproj", "{0FDC7951-301F-49C7-A4BE-4CF827314B9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carpooling.DomainModels", "DomainModels\Carpooling.DomainModels.csproj", "{1923FFE3-2F7E-4919-9718-BD525A824992}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,18 +29,10 @@ Global
 		{7F2B7B17-9B5E-49C5-8D94-1E7DAFD06984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F2B7B17-9B5E-49C5-8D94-1E7DAFD06984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F2B7B17-9B5E-49C5-8D94-1E7DAFD06984}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED64A593-925B-4C35-B8DB-81A3EC87ECFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED64A593-925B-4C35-B8DB-81A3EC87ECFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED64A593-925B-4C35-B8DB-81A3EC87ECFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED64A593-925B-4C35-B8DB-81A3EC87ECFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D518141-8286-43EC-B66C-5F176DEED806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D518141-8286-43EC-B66C-5F176DEED806}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D518141-8286-43EC-B66C-5F176DEED806}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D518141-8286-43EC-B66C-5F176DEED806}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FDC7951-301F-49C7-A4BE-4CF827314B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FDC7951-301F-49C7-A4BE-4CF827314B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FDC7951-301F-49C7-A4BE-4CF827314B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FDC7951-301F-49C7-A4BE-4CF827314B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1923FFE3-2F7E-4919-9718-BD525A824992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1923FFE3-2F7E-4919-9718-BD525A824992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1923FFE3-2F7E-4919-9718-BD525A824992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1923FFE3-2F7E-4919-9718-BD525A824992}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

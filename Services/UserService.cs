@@ -1,59 +1,44 @@
-﻿using CarPooling.Data.Models;
-using CarPooling.Repositories;
-using Microsoft.Extensions.Configuration;
-using CarPooling.RequestDTOs;
+﻿using CarPooling.DomainModels;
 using CarPooling.Services.Contracts;
-using CarPooling.ResponseDTOs;
+using Carpooling.Data.IRepository;
 
-namespace CarPooling.Services 
+namespace CarPooling.Services
 {
-    public class UserService:IUserService
-    { 
-        private IConfiguration _config;
-        private readonly TokenService _tokenService;
-        private readonly UserRepository _userRepository;
+    public class UserService : IUserService
+    {
+        private readonly IUserRepository _userRepository;
 
-        public UserService( IConfiguration configuration,TokenService tokenService,UserRepository userRepository )
+        public UserService(IUserRepository userRepository)
         {
-            this._config = configuration;
-            this._tokenService = tokenService;
             this._userRepository = userRepository;
         }
 
-        public async Task<User>  CreateUser(UserRequest Request)
+        public async Task<User> CreateUser(User user)
         {
+            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
             var requestedUser = new User()
             {
-                email = Request.email,
-                password = Request.password,
+                Email = user.Email,
+                Password = user.Password,
             };
-            User getUser =await _userRepository.AddUser(requestedUser);
-             return getUser;
+            User getUser = await _userRepository.AddUser(requestedUser);
+            return getUser;
         }
 
-        public async Task<List<User>> GetUsers()
-        {
-             List<User> users =  await _userRepository.GetUsers();
-            return users;
-        }
-
-        public  async Task<LoginObject> Login(UserRequest addUserRequest)
+        public async Task<User> GetUser(User UserRequest)
         {
             try
             {
-                var existingUser = await _userRepository.Login(addUserRequest);
-                if (existingUser != null && existingUser.password == addUserRequest.password)
+                User existingUser = await _userRepository.GetUser(UserRequest);
+                if (existingUser != null)
                 {
-                    var token = _tokenService.GenerateToken();
-                    var loginObject = new LoginObject
+                    if (BCrypt.Net.BCrypt.Verify(UserRequest.Password, existingUser.Password))
                     {
-                        NewToken = Convert.ToString(new { token }),
-                        UserId = existingUser.id
-                    };
-                    var response = loginObject;
-                    return response;
+                        return existingUser;
+                    }
+                    throw new Exception("password incorrect");
                 }
-                throw new Exception();
+                throw new Exception("User doesn't exists");
             }
             catch (Exception ex)
             {
