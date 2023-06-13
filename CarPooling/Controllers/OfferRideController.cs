@@ -26,16 +26,7 @@ namespace CarPooling.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<OfferRide>), StatusCodes.Status200OK)]
         public IEnumerable<OfferRide> GetAllOfferedRides()
         {
-            try
-            {
-                List<OfferRide> getAllOfferedRides = (List<OfferRide>)_offerRideService.GetAllOfferedRides();
-                return getAllOfferedRides;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
+            return _offerRideService.GetAllOfferedRides();
         }
 
         [HttpPost]
@@ -45,22 +36,10 @@ namespace CarPooling.API.Controllers
         {
             try
             {
-                List<OfferRide> getOfferedRides = await _offerRideService.GetOfferedRides(_mapper.Map<OfferRide>(offerRideRequestDTO));
-                List<OfferRide> getrides = (List<OfferRide>)getOfferedRides.Select(offerRide => new OfferRide
+                List<OfferRideResponse> getOfferedRides = _mapper.Map<List<OfferRideResponse>>(await _offerRideService.GetOfferedRides(_mapper.Map<OfferRide>(offerRideRequestDTO)));
+                if (getOfferedRides != null)
                 {
-                    UserName = offerRide.UserName,
-                    OfferRideId = offerRide.OfferRideId,
-                    StartPoint = offerRide.StartPoint,
-                    EndPoint = offerRide.EndPoint,
-                    Date = offerRide.Date,
-                    TimeSlot = offerRide.TimeSlot,
-                    Price = offerRide.Price,
-                    Seats = offerRide.Seats
-                });
-                List<OfferRideResponse> _getRides = _mapper.Map<List<OfferRideResponse>>(getrides);
-                if (_getRides != null)
-                {
-                    return Ok(_getRides);
+                    return Ok(getOfferedRides);
                 }
                 else
                 {
@@ -78,8 +57,14 @@ namespace CarPooling.API.Controllers
         [ProducesResponseType(typeof(BookRide), StatusCodes.Status200OK)]
         public async Task<IActionResult> OfferRide([FromBody] OfferRideRequest offerRideRequest)
         {
-            OfferRide getOfferedRide = await _offerRideService.OfferRide(_mapper.Map<OfferRide>(offerRideRequest));
-            return Ok(getOfferedRide);
+            try
+            {
+                return Ok(await _offerRideService.OfferRide(_mapper.Map<OfferRide>(offerRideRequest)));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
 

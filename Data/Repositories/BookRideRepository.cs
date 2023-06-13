@@ -18,30 +18,27 @@ namespace CarPooling.Data.Repositories
         public IEnumerable<Carpooling.DomainModels.BookRide> GetBookedRides()
         {
             List<BookRide> bookedRides = dbContext.BookedRides.ToList();
-            List<Carpooling.DomainModels.BookRide> _bookedRides = _mapper.Map<List<Carpooling.DomainModels.BookRide>>(bookedRides);
-            return _bookedRides;
+            return _mapper.Map<List<Carpooling.DomainModels.BookRide>>(bookedRides);
         }
 
-        public async Task<Carpooling.DomainModels.BookRide> BookRide(Carpooling.DomainModels.BookRide bookRide)
+        public async Task<Carpooling.DomainModels.BookRide> BookRide(Carpooling.DomainModels.BookRide bookRideRequest)
         {
-            var offeredRide = dbContext.OfferedRides.FirstOrDefault(x =>
-             x.StartPoint == bookRide.StartPoint &&
-             x.EndPoint == bookRide.EndPoint &&
-             x.TimeSlot == bookRide.TimeSlot &&
-             x.Date == bookRide.Date &&
-             x.Seats >= bookRide.Seats
+            OfferRide? offeredRide = dbContext.OfferedRides.FirstOrDefault(x =>
+             x.StartPoint == bookRideRequest.StartPoint &&
+             x.EndPoint == bookRideRequest.EndPoint &&
+             x.TimeSlot == bookRideRequest.TimeSlot &&
+             x.Date == bookRideRequest.Date &&
+             x.Seats >= bookRideRequest.Seats
            );
             try
             {
                 if (offeredRide != null)
                 {
-                    BookRide _bookRide = _mapper.Map<BookRide>(bookRide);
-                    await dbContext.BookedRides.AddAsync(_bookRide);
+                    await dbContext.BookedRides.AddAsync(_mapper.Map<BookRide>(bookRideRequest));
                     await dbContext.SaveChangesAsync();
-                    Carpooling.DomainModels.BookRide bookRideDomain = _mapper.Map<Carpooling.DomainModels.BookRide>(_bookRide);
-                    return bookRideDomain;
+                    return _mapper.Map<Carpooling.DomainModels.BookRide>(bookRideRequest);
                 }
-                throw new Exception();
+                throw new Exception("No rides exists");
             }
             catch (Exception ex)
             {

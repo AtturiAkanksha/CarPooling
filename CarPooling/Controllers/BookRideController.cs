@@ -26,8 +26,7 @@ namespace CarPooling.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<BookRide>), StatusCodes.Status200OK)]
         public IEnumerable<BookRide> GetBookedRides()
         {
-            List<BookRide> getBookedRides = (List<BookRide>)this._bookRideService.GetBookedRides();
-            return getBookedRides;
+            return this._bookRideService.GetBookedRides();
         }
 
         [HttpPost]
@@ -35,8 +34,14 @@ namespace CarPooling.API.Controllers
         [ProducesResponseType(typeof(BookRide), StatusCodes.Status200OK)]
         public async Task<IActionResult> BookRide(BookRideRequest bookRideRequest)
         {
-            BookRide bookedRide = await this._bookRideService.BookRide(_mapper.Map<BookRide>(bookRideRequest));
-            return Ok(bookedRide);
+            try
+            {
+                return Ok(await this._bookRideService.BookRide(_mapper.Map<BookRide>(bookRideRequest)));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

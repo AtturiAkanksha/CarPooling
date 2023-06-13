@@ -74,7 +74,7 @@ namespace Carpooling.Data.Migrations
 
                     b.HasKey("BookRideId");
 
-                    b.ToTable("BooRides");
+                    b.ToTable("BookRides");
                 });
 
             modelBuilder.Entity("CarPooling.Data.DataModels.OfferRide", b =>

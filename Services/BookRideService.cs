@@ -15,8 +15,7 @@ namespace CarPooling.Services
 
         public IEnumerable<BookRide> GetBookedRides()
         {
-            List<BookRide> getBookedRides = (List<BookRide>)this._bookRideRepository.GetBookedRides();
-            return getBookedRides;
+            return (List<BookRide>)this._bookRideRepository.GetBookedRides();
 
         }
 
@@ -35,9 +34,7 @@ namespace CarPooling.Services
                 Price = bookRideRequest.Price,
                 Seats = bookRideRequest.Seats,
             };
-            BookRide bookedRide = await this._bookRideRepository.BookRide(bookRide);
-            return bookedRide;
-
+            return await this._bookRideRepository.BookRide(bookRide);
         }
     }
 }

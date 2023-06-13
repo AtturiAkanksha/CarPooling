@@ -1,0 +1,12 @@
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\bin\Debug\net7.0\Carpooling.DomainModels.deps.json
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\bin\Debug\net7.0\Carpooling.DomainModels.dll
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\bin\Debug\net7.0\Carpooling.DomainModels.pdb
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\Carpooling.DomainModels.csproj.AssemblyReference.cache
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\Carpooling.DomainModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\Carpooling.DomainModels.AssemblyInfoInputs.cache
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\Carpooling.DomainModels.AssemblyInfo.cs
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\Carpooling.DomainModels.csproj.CoreCompileInputs.cache
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\Carpooling.DomainModels.dll
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\refint\Carpooling.DomainModels.dll
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\Carpooling.DomainModels.pdb
+C:\Users\akanksha.a\Downloads\CarPooling-backend\CarPooling\DomainModels\obj\Debug\net7.0\ref\Carpooling.DomainModels.dll

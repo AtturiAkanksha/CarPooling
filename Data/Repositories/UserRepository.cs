@@ -16,27 +16,31 @@ namespace CarPooling.Data.Repositories
 
         public async Task<DomainModels.User> AddUser(DomainModels.User user)
         {
+
             var _user = _mapper.Map<DataModels.User>(user);
             var isEmailAlreadyExists = dbContext.Users.Any(x => x.Email == _user.Email);
-            if (!isEmailAlreadyExists)
+            try
             {
-                await dbContext.Users.AddAsync(_user);
-                await dbContext.SaveChangesAsync();
-                var dbUser = dbContext.Users.FirstOrDefault(x => x.Email == _user.Email);
-                var Userdomain = _mapper.Map<DomainModels.User>(dbUser);
-                return Userdomain;
+                if (!isEmailAlreadyExists)
+                {
+                    await dbContext.Users.AddAsync(_user);
+                    await dbContext.SaveChangesAsync();
+                    var dbUser = dbContext.Users.FirstOrDefault(x => x.Email == _user.Email);
+                    return _mapper.Map<DomainModels.User>(dbUser); 
+                }
+                throw new Exception("User already exists");
             }
-
-            throw new Exception();
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<DomainModels.User> GetUser(DomainModels.User userRequest)
         {
             DataModels.User? _user = _mapper.Map<DataModels.User>(userRequest);
             DataModels.User? existingUser = dbContext.Users.FirstOrDefault(x => x.Email == _user.Email);
-            DomainModels.User user = _mapper.Map<DomainModels.User>(existingUser);
-            return user;
+            return _mapper.Map<DomainModels.User>(existingUser);
         }
-
     }
 }

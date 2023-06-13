@@ -4,7 +4,6 @@ namespace Carpooling.DomainModels
 {
     public class OfferRide
     {
-        [Key]
         public Guid OfferRideId { get; set; }
         public int UserId { get; set; }
         public string? UserName { get; set; }

@@ -29,13 +29,13 @@ namespace CarPooling.Data.Repositories
             return _mapper.Map<List<Carpooling.DomainModels.OfferRide>>(getRides);
         }
 
-        public async Task<List<Carpooling.DomainModels.OfferRide>> GetOfferedRides(Carpooling.DomainModels.OfferRide offerRide)
+        public async Task<List<Carpooling.DomainModels.OfferRide>> GetOfferedRides(Carpooling.DomainModels.OfferRide _offerRide)
         {
             List<DataModels.OfferRide> getOfferedRides = await dbContext.OfferedRides.Where(
-                offerRide => offerRide.StartPoint == offerRide.StartPoint &&
-                offerRide.EndPoint == offerRide.EndPoint &&
-                offerRide.Date == offerRide.Date &&
-                offerRide.TimeSlot == offerRide.TimeSlot
+                offerRide => offerRide.StartPoint == _offerRide.StartPoint &&
+                offerRide.EndPoint == _offerRide.EndPoint &&
+                offerRide.Date == _offerRide.Date &&
+                offerRide.TimeSlot == _offerRide.TimeSlot
                 ).ToListAsync();
             return _mapper.Map<List<Carpooling.DomainModels.OfferRide>>(getOfferedRides);
         }

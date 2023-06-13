@@ -38,12 +38,7 @@ namespace CarPooling.API.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(new ResponseBase<bool>()
-                {
-                    Response = false,
-                    Message = ex.Message
-                });
-
+                throw new Exception(ex.Message);
             }
 
         }
@@ -65,7 +60,7 @@ namespace CarPooling.API.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(ex.Message);
+                throw new Exception(ex.Message);
             }
 
         }

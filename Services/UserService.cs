@@ -21,8 +21,7 @@ namespace CarPooling.Services
                 Email = user.Email,
                 Password = user.Password,
             };
-            User getUser = await _userRepository.AddUser(requestedUser);
-            return getUser;
+            return await _userRepository.AddUser(requestedUser);
         }
 
         public async Task<User> GetUser(User UserRequest)
