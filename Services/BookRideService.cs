@@ -15,26 +15,14 @@ namespace CarPooling.Services
 
         public IEnumerable<BookRide> GetBookedRides()
         {
-            return (List<BookRide>)this._bookRideRepository.GetBookedRides();
+            return this._bookRideRepository.GetBookedRides();
 
         }
 
         public async Task<BookRide> BookRide(BookRide bookRideRequest)
         {
-            var bookRide = new BookRide()
-            {
-                BookRideId = Guid.NewGuid(),
-                UserName = bookRideRequest.UserName,
-                OfferRideId = bookRideRequest.OfferRideId,
-                UserId = bookRideRequest.UserId,
-                StartPoint = bookRideRequest.StartPoint,
-                EndPoint = bookRideRequest.EndPoint,
-                TimeSlot = bookRideRequest.TimeSlot,
-                Date = bookRideRequest.Date,
-                Price = bookRideRequest.Price,
-                Seats = bookRideRequest.Seats,
-            };
-            return await this._bookRideRepository.BookRide(bookRide);
+            var userId = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+            return await this._bookRideRepository.BookRide(bookRideRequest);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace CarPooling.Services
 
         public IEnumerable<OfferRide> GetAllOfferedRides()
         {
-            return (List<OfferRide>)this._offerRideRepository.GetAllOfferedRides();
+            return this._offerRideRepository.GetAllOfferedRides();
         }
 
         public async Task<List<OfferRide>> GetOfferedRides(OfferRide offerRide)
