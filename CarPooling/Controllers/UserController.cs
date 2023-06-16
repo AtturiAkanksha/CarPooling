@@ -53,8 +53,8 @@ namespace CarPooling.API.Controllers
                 User user = await _userService.GetUser(_mapper.Map<User>(userRequest));
                 var dataObject = new DataObject
                 {
-                    Token = _tokenService.GenerateToken(_mapper.Map<User>(userRequest)),
-                    UserId = user.Id
+                    UserId = user.Id,
+                    Token = _tokenService.GenerateToken(_mapper.Map<User>(userRequest), user.Id),
                 };
                 return Ok(dataObject);
             }

@@ -2,7 +2,6 @@
 {
     public class OfferRideRequest
     {
-        public int UserId { get; set; }
         public string UserName { get; set; } = null!;
         public string StartPoint { get; set; } = null!;
         public  string? Stops { get; set; }

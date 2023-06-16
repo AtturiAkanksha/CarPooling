@@ -5,6 +5,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using CarPooling.API.ResponseDTOs;
 using CarPooling.Services.Contracts;
+using System.Security.Claims;
 
 namespace CarPooling.API.Controllers
 {
@@ -59,7 +60,11 @@ namespace CarPooling.API.Controllers
         {
             try
             {
-                return Ok(await _offerRideService.OfferRide(_mapper.Map<OfferRide>(offerRideRequest)));
+                ClaimsPrincipal user = HttpContext.User;
+                var userId = HttpContext.User.FindFirst("UserId")?.Value;
+                OfferRide _offerRide = _mapper.Map<OfferRide>(offerRideRequest);
+                _offerRide.UserId = (int)Convert.ToInt64(userId);
+                return Ok(await _offerRideService.OfferRide(_offerRide));
             }
             catch (Exception ex)
             {

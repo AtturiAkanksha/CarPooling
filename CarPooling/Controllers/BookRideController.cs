@@ -4,6 +4,7 @@ using Carpooling.DomainModels;
 using CarPooling.API.RequestDTOs;
 using AutoMapper;
 using CarPooling.Services.Contracts;
+using System.Security.Claims;
 
 namespace CarPooling.API.Controllers
 {
@@ -36,7 +37,11 @@ namespace CarPooling.API.Controllers
         {
             try
             {
-                return Ok(await this._bookRideService.BookRide(_mapper.Map<BookRide>(bookRideRequest)));
+                ClaimsPrincipal user = HttpContext.User;
+                var userId = HttpContext.User.FindFirst("UserId")?.Value;
+                BookRide _bookRide = _mapper.Map<BookRide>(bookRideRequest);
+                _bookRide.UserId = (int)Convert.ToInt64(userId);
+                return Ok(await this._bookRideService.BookRide(_bookRide));
             }
             catch (Exception ex)
             {
