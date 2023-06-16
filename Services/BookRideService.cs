@@ -21,7 +21,6 @@ namespace CarPooling.Services
 
         public async Task<BookRide> BookRide(BookRide bookRideRequest)
         {
-            var userId = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
             return await this._bookRideRepository.BookRide(bookRideRequest);
         }
     }

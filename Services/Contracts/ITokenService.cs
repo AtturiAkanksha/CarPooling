@@ -1,7 +1,9 @@
-﻿namespace CarPooling.Services.Contracts
+﻿using CarPooling.DomainModels;
+
+namespace CarPooling.Services.Contracts
 {
     public interface ITokenService
     {
-        public string GenerateToken();
+        string GenerateToken(User user);
     }
 }
