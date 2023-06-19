@@ -1,0 +1,24 @@
+<div class="d-flex">
+    <div>
+        <div class="pl-4">
+            <img [src]="logo" class="logo" alt="">
+            <h1>TURN <span class="text-yellow">MILES</span> <br> INTO <span class="text-purple">MONEY</span></h1>
+            <h2>RIDES ON TAP</h2>
+        </div>
+        <img [src]="image1" class="image1" alt="">
+    </div>
+    <div class="div-right">
+        <h2>Log In</h2>
+        <img [src]="logIn" class="logIn" alt="">
+        <hr>
+        <div class="form-div">
+            <form [formGroup]="logInForm" class="form">
+                <input type="text" id="email" name="email" value="Enter email id" formControlName = "email"><br><br>
+                <input type="password" id="enterPassword" value="Enter password" formControlName="password"><br><br>
+                <div *ngIf="validLogin == false" class="error-message">{{errormessage}}</div>
+                <button type="button" (click)="onLogIn()">Submit</button>
+            </form>
+                <p>not a member yet? <a [routerLink]="['']">Sign Up</a></p>
+        </div>
+    </div>
+</div>

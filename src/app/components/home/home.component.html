@@ -1,0 +1,15 @@
+<div class="outer-div">
+    <app-header></app-header>
+    <div class="">
+        <h3 class="title">Hey {{userName}}</h3>
+        <div class="flex-boxes">
+            <div class="div-purple"  (click)="bookRide()">
+                <p>Book a ride</p>
+            </div>
+            <div class="div-yellow" (click)="offerRide()">
+                <p>Offer a ride</p>
+            </div>
+        </div>
+    </div>
+    <img [src]="image3" class="image3" alt="">
+</div>

@@ -1,0 +1,87 @@
+.image1{
+    width:220rem;
+    height: 1120px;
+}
+.image2{
+    width:88rem;
+    height: 1840px;
+    position: relative;
+    top:37rem;
+    bottom: 0rem;
+    background: rgba(255,172,25,255);
+}
+.logo{
+    height:20rem;
+    margin: 6rem;
+}
+
+.d-flex{
+    margin: 0;
+    padding: 0;
+}
+
+.d-flex h1{
+    font-size: 16rem;
+    padding-left: 5rem;;
+    font-weight: 500rem;
+    color:rgba(51,64,83,255);
+}
+.text-yellow{
+    color:rgba(255,172,25,255);
+}
+.text-purple{
+    color:rgba(147,25,255,255);
+}
+.d-flex h2{
+    font-size: 9rem;
+    color:rgba(51,64,83,255);
+    margin-left: 5rem;;
+}
+
+.div-right{
+    background:rgba(255,172,25,255) ;
+    height:2430px;
+    width:113rem;
+}
+hr{
+    position: relative;
+    bottom:150rem;
+    left:75rem;
+    width:26rem;
+    color: white;
+}
+
+.form-div{
+    position: relative;
+    bottom: 65rem;
+    left:15rem;
+    font-size: 6rem;
+}
+.form-div p{
+    color: white;;
+}
+.form input{
+    height: 12rem;
+    border-style: none;
+    border-radius: 5px;
+    width: 63rem;
+    font-size: 4rem;
+    color: grey;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+.form button{
+    background:rgba(147,25,255,255);
+    color:white;
+    width: 24rem;
+    height:9rem;
+    margin-top: 5rem;
+    border-style: none;
+    border-radius: 5rem;
+    font-size: 5rem;
+}
+.error-message{
+    color:red;
+    font-size: 3rem;
+}

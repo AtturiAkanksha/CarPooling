@@ -1,0 +1,160 @@
+<div class="outer-div">
+    <div>
+        <app-header></app-header>
+        <div class="d-flex">
+            <div class="flex-box">
+                <div class=" div-header d-flex">
+                    <div>
+                        <h3 class="box-title">Book a Ride</h3>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-toggle-off" viewBox="0 0 16 16">
+                            <path
+                                d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z" />
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-small">we get you the matches asap!</p>
+                <form [formGroup]="bookRideForm">
+                    <div class="form-group">
+                        <div class="">
+                            <div>
+                                <div class="d-flex">
+                                    <div>
+                                        <label class="text-small" for="startPoint">From:</label><br>
+                                        <input id="startPoint" class="form-control" name="startPoint" type="text"
+                                            formControlName="startPoint" required />
+                                        <!-- <div *ngIf="isFormSubmitted && bookRideForm.get('from')?.errors?.['required']"
+                                class="error-message">Error! field empty</div> -->
+                                        <label class="text-small" for="to">To:</label><br>
+                                        <input class="form-control" id="endPoint" type="text" formControlName="endPoint"
+                                            required>
+                                    </div>
+                                    <div>
+                                        <div class="inner-right">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                                fill="currentColor" class="bi bi-circle startIcon " viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            </svg>
+                                            <div class="columm-class">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-circle circleIcon "
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-circle circleIcon "
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-circle circleIcon "
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
+                                                    fill="currentColor" class="bi bi-geo-alt-fill destinationIcon"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="text-small" for="date">Date:</label><br>
+                                <input type="date" class="form-control" formControlName="date" required><br><br>
+                                <div class="d-large">
+                                    <p class="text-small">Time:</p>
+                                    <div class="div-bottom timediv">
+                                        <div class="timediv-inner" *ngFor="let timeSlot of timeSlotsArray">
+                                            <label class="" for="{{timeSlot.timeSlot}}">
+                                                <input type="radio" formControlName="timeSlot" class="radio-btn"
+                                                    id="{{timeSlot.timeSlot}}"
+                                                    (click)="onRadioChange($event)">{{timeSlot.timeSlot}}
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <button type="button" class="text-small" id="submit" name="button"
+                                        (click)="onSubmit()">submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="div-right">
+                <h1>Your Matches</h1>
+                <div>
+                    <h3 class="flex" [hidden]="isHidden">No Matches found</h3>
+                </div>
+                <div class="flex-boxes">
+                    <div class="flex-box" *ngFor="let offeredRide of offeredRides;let i=index">
+                        <div (click)="onCardClick(i)">
+                            <div class="box-header d-flex">
+                                <h2 class="box-title">{{offeredRide.userName}}</h2>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                </svg>
+                            </div>
+                            <div class="box-body d-flex">
+                                <div>
+                                    <p class="text-small">from</p>
+                                    <p class="text-large">{{offeredRide.startPoint}}</p>
+                                    <p class="text-small">Date</p>
+                                    <p class="text-large">{{offeredRide.date}}</p>
+                                    <p class="text-small">price</p>
+                                    <p class="text-large">{{offeredRide.price}}</p>
+                                </div>
+                                <div class="d-flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                        class="bi bi-circle start " viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                        class="bi bi-geo-alt-fill destination" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-small">to</p>
+                                    <p class="text-large">{{offeredRide.endPoint}}</p>
+                                    <p class="text-small">Time</p>
+                                    <p class="text-large">{{offeredRide.timeSlot}}</p>
+                                    <p class="text-small">seat availabilty</p>
+                                    <p class="text-large">{{offeredRide.seats}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

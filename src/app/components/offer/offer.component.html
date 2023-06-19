@@ -1,0 +1,134 @@
+<div class=" outer-div">
+    <div>
+        <app-header></app-header>
+        <div class="flex-boxes">
+            <div class="flex-box">
+                <div class="box-header">
+                    <div class="d-flex">
+                        <div>
+                            <h3 class="box-title">offer a Ride</h3>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                                class="bi bi-toggle-off" viewBox="0 0 16 16">
+                                <path
+                                    d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <p>we get you the matches asap!</p>
+                </div>
+                <form [formGroup]="offerRideForm">
+                    <div class="form-group">
+                        <div class="d-flex">
+                            <div>
+                                <label class="text-small" for="startPoint">From:</label><br>
+                                <input id="startPoint" class="form-control" name="startPoint" type="text"
+                                    formControlName="startPoint" required />
+                                <div *ngIf="isFormSubmitted && offerRideForm.get('from')?.errors?.['required']"
+                                    class="error-message">Error! field empty</div>
+                                <label class="text-small" for="to">To:</label><br>
+                                <input class="form-control" id="endPoint" type="text" formControlName="endPoint"
+                                    required>
+
+                            </div>
+                            <div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                        class="bi bi-circle startIcon " viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    </svg>
+                                    <div class="columm-class">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            fill="currentColor" class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            fill="currentColor" class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            fill="currentColor" class="bi bi-circle circleIcon " viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
+                                            fill="currentColor" class="bi bi-geo-alt-fill destinationIcon"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+
+                    <label class="text-small" for="date">Date:</label><br>
+                    <input type="date" class="form-control" formControlName="date" required><br><br>
+                    <div class="d-large">
+                        <p class="text-small">Time:</p>
+                        <div class="div-bottom timediv">
+                            <div class="timediv-inner" *ngFor="let timeSlot of timeSlotsArray">
+                                <label class="" for="{{timeSlot.timeSlot}}">
+                                    <input type="radio" formControlName="timeSlot" class="radio-btn"
+                                        id="{{timeSlot.timeSlot}}"
+                                        (click)="onRadioChange($event)">{{timeSlot.timeSlot}}
+                                </label>
+                            </div>
+
+                        </div>
+                        <h1 (click)="onNextClick()">Next>></h1>
+                    </div>
+
+                </form>
+            </div>
+            <div class="flex-box" [hidden]="isShowDiv">
+                <div class="box-header">
+                    <h2 class="box-title">Offer a Ride</h2>
+                    <p>we get you the matches asap!</p>
+                </div>
+                <form [formGroup]="offerRideForm">
+                    <label class="text-small " for="stop1">stop1 (Optional):</label><br>
+                    <input class="form-control" id="stop1" formControlName="stop" type="text">
+
+                    <div *ngFor="let stop of [].constructor(displayStop); let i = index">
+                        <label class="text-small " for="stop2">Stop{{i+2}} (Optional):</label><br>
+                        <input class="form-control" id="stop2" formControlName="additionalStop" type="text">
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor"
+                        (click)="incrementStop()" class="bi bi-plus addIcon" viewBox="0 0 16 16">
+                        <path
+                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                    </svg>
+                    <div class="d-flex">
+                        <p class="text-small">Available
+                            seats:</p><br>
+                        <p class="text-small">price</p>
+                    </div>
+                    <div class="d-flex ">
+                        <div class="div-bottom seats-div">
+                            <div class="seats-div-inner"  *ngFor="let seats of noOfSeats">
+                                <label class="" for="{{seats.seats}}">
+                                    <input type="radio" class="radio-btn form-control " formControlName="seats"
+                                        id="{{seats.seats}}" (click)="clickSeats($event)">{{seats.seats}}
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control" id="price" type="text" formControlName="price" required><br><br>
+                            <div *ngIf="isFormSubmitted && offerRideForm.get('price')?.errors?.['required']"
+                                class="error-message">Error! field empty</div>
+                        </div>
+                    </div>
+                    <button type="button" class="button text-large" id="submit" (click)="submitForm()">submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
