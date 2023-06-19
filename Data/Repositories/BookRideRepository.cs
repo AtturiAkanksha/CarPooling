@@ -18,6 +18,13 @@ namespace CarPooling.Data.Repositories
         public IEnumerable<Carpooling.DomainModels.BookRide> GetBookedRides()
         {
             List<BookRide> bookedRides = dbContext.BookedRides.ToList();
+            foreach (BookRide bookedRide in bookedRides)
+            {
+                OfferRide? offeredRide = dbContext.OfferedRides.FirstOrDefault(x =>
+                x.OfferRideId == bookedRide.OfferRideId);
+                bookedRide.UserName = offeredRide.UserName;
+                bookedRide.UserId= offeredRide.UserId;
+            }
             return _mapper.Map<List<Carpooling.DomainModels.BookRide>>(bookedRides);
         }
 

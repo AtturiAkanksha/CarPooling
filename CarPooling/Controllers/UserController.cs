@@ -34,13 +34,11 @@ namespace CarPooling.API.Controllers
                     Response = await _userService.CreateUser(_mapper.Map<User>(user)),
                     Message = "success"
                 });
-
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
         [HttpPost]
@@ -62,7 +60,6 @@ namespace CarPooling.API.Controllers
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
     }

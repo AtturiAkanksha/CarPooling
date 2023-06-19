@@ -39,9 +39,8 @@ namespace Carpooling.Data.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("EndPoint");
 
-                    b.Property<string>("OfferRideId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                    b.Property<Guid>("OfferRideId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("OfferRideId");
 
                     b.Property<string>("Price")

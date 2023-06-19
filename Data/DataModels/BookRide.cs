@@ -14,7 +14,7 @@ namespace CarPooling.Data.DataModels
         [Column("UserName")]
         public string UserName { get; set; } = null!;
         [Column("OfferRideId")]
-        public string OfferRideId { get; set; } = null!;
+        public Guid OfferRideId { get; set; } 
         [Column("StartPoint")]
         [Required]
         public string StartPoint { get; set; } = null!;

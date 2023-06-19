@@ -27,7 +27,24 @@ namespace CarPooling.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<OfferRide>), StatusCodes.Status200OK)]
         public IEnumerable<OfferRide> GetAllOfferedRides()
         {
-            return _offerRideService.GetAllOfferedRides();
+            try
+            {
+                IEnumerable<OfferRide> offeredRides = _offerRideService.GetAllOfferedRides();
+                int userId = (int)Convert.ToInt64(HttpContext.User.FindFirst("UserId")?.Value);
+                foreach (OfferRide ride in offeredRides)
+                {
+                    if (userId != ride.UserId)
+                    {
+                        return offeredRides;
+                    }
+                }
+                throw new Exception("No offered rides yet");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
 
         [HttpPost]

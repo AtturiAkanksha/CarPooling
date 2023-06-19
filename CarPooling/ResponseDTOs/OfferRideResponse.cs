@@ -10,6 +10,5 @@
         public int Seats { get; set; } = 0;
         public string Price { get; set; } = null!;
         public Guid OfferRideId { get; set; }
-
     }
 }

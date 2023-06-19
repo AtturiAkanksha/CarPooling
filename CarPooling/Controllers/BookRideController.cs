@@ -27,7 +27,23 @@ namespace CarPooling.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<BookRide>), StatusCodes.Status200OK)]
         public IEnumerable<BookRide> GetBookedRides()
         {
-            return this._bookRideService.GetBookedRides();
+            try
+            {
+                IEnumerable<BookRide> bookedRides = _bookRideService.GetBookedRides();
+                int userId = (int)Convert.ToInt64(HttpContext.User.FindFirst("UserId")?.Value);
+                foreach (BookRide ride in bookedRides)
+                {
+                    if (userId != ride.UserId)
+                    {
+                        return bookedRides;
+                    }
+                }
+                throw new Exception("No booked rides yet");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpPost]

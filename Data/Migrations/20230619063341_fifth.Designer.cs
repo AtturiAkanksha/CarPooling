@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Carpooling.Data.Migrations
 {
     [DbContext(typeof(CarPoolingDbContext))]
-    [Migration("20230613112846_fifth")]
+    [Migration("20230619063341_fifth")]
     partial class fifth
     {
         /// <inheritdoc />
@@ -42,9 +42,8 @@ namespace Carpooling.Data.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("EndPoint");
 
-                    b.Property<string>("OfferRideId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                    b.Property<Guid>("OfferRideId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("OfferRideId");
 
                     b.Property<string>("Price")

@@ -18,7 +18,7 @@ namespace Carpooling.Data.Migrations
                     BookRideId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OfferRideId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OfferRideId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StartPoint = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EndPoint = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),

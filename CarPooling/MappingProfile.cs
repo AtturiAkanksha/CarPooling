@@ -17,6 +17,5 @@ namespace CarPooling.API
             CreateMap<Carpooling.DomainModels.BookRide, Data.DataModels.BookRide>().ReverseMap();
             CreateMap<Carpooling.DomainModels.OfferRide, OfferRideResponse>().ReverseMap();
         }
-
     }
 }
