@@ -46,7 +46,7 @@ namespace CarPooling.API
 
 
             builder.Services.AddDbContext<CarPoolingDbContext>(options =>
-           options.UseSqlServer(builder.Configuration.GetConnectionString("CarPoolingApiConnectionString")));
+           options.UseSqlServer(builder.Configuration.GetConnectionString("ProdConnection")));
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IOfferRideService, OfferRideService>();
@@ -73,6 +73,7 @@ namespace CarPooling.API
             });
 
             var app = builder.Build();
+            app.UseHttpLogging();
 
             if (app.Environment.IsDevelopment())
             {

@@ -15,11 +15,13 @@ namespace CarPooling.API.Controllers
     {
         private readonly IBookRideService _bookRideService;
         private readonly IMapper _mapper;
+        private readonly ILogger<BookRideController> _logger;
 
-        public BookRideController(IBookRideService bookRideService, IMapper mapper)
+        public BookRideController(IBookRideService bookRideService, IMapper mapper, ILogger<BookRideController> logger)
         {
             this._bookRideService = bookRideService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -40,9 +42,11 @@ namespace CarPooling.API.Controllers
                 }
                 throw new Exception("No booked rides yet");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                _logger.LogError("hhh");
+                throw;
+               
             }
         }
 
