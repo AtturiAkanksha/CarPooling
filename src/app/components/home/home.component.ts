@@ -8,7 +8,7 @@ import { User } from 'src/app/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  image3:any='/assets/images/img3.png/'
+  image3:string='assets/images/img3.png'
   currentUser:User;
   userName:string;
 

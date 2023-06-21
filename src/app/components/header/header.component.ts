@@ -8,8 +8,7 @@ import { User } from 'src/app/user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  logo:any='/assets/images/logo.png/'
-  user:any='/assets/images/john.jpg/'
+  logo: string = 'assets/images/logo.png';
   isHide=true;
   currentUser:User;
   username:string;

@@ -23,37 +23,37 @@ export class authService {
   );
 
   public RegisterUser(user: User): Observable<any> {
-    const baseServerUrl = " https://localhost:7144/Api/User/createUser";
+    const baseServerUrl = " https://carpoolapi1.azurewebsites.net/Api/User/createUser";
     return this.http.post<User>(baseServerUrl, user);
   }
 
   public LogInUser(user: User): Observable<any> {
-    const baseServerUrl = "https://localhost:7144/Api/User/login";
+    const baseServerUrl = "https://carpoolapi1.azurewebsites.net/Api/User/login";
     return this.http.post<User>(baseServerUrl, user)
   }
 
   public OfferRide(offerRide: OfferRide): Observable<any> {
-    const baseServerUrl = "https://localhost:7144/Api/OfferRide/offerRide";
+    const baseServerUrl = "https://carpoolapi1.azurewebsites.net/Api/OfferRide/offerRide";
     return this.http.post<OfferRide>(baseServerUrl, offerRide,{headers:this.headers})
   }
 
   public GetAllOfferedRides(): Observable<any> {
-    const baseServerUrl = "https://localhost:7144/Api/OfferRide/getAllOfferedRides";
+    const baseServerUrl = "https://carpoolapi1.azurewebsites.net/Api/OfferRide/getAllOfferedRides";
     return this.http.get<OfferRide>(baseServerUrl,{headers:this.headers});
   }
 
   public BookRideRequest(bookRideRequest: BookRideRequest): Observable<any> {
-    const baseServerUrl = "https://localhost:7144/Api/OfferRide/getOfferedRides";
+    const baseServerUrl = "https://carpoolapi1.azurewebsites.net/Api/OfferRide/getOfferedRides";
     return this.http.post<BookRideRequest>(baseServerUrl, bookRideRequest,{headers:this.headers})
   }
 
   public BookRide(bookRide: BookRide): Observable<any> {
-    const baseServerUrl = "https://localhost:7144/Api/BookRide/bookRide";
+    const baseServerUrl = "https://carpoolapi1.azurewebsites.net/Api/BookRide/bookRide";
     return this.http.post<BookRide>(baseServerUrl, bookRide,{headers:this.headers})
   }
   
   public GetAllBookedRides(): Observable<any> {
-    const baseServerUrl = "https://localhost:7144/Api/BookRide/getBookedRides";
+    const baseServerUrl = "https://carpoolapi1.azurewebsites.net/Api/BookRide/getBookedRides";
     return this.http.get<OfferRideResponseDTO>(baseServerUrl,{headers:this.headers});
   }
 }

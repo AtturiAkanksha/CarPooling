@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a5e3ffcb-8786-40de-931d-257de574aa14/microsoft.web/sites/subscriptions/a5e3ffcb-8786-40de-931d-257de574aa14/resourceGroups/carpool/providers/Microsoft.Web/sites/CarpoolClient",
+    "appService.deploySubpath": "dist\\app"
+}

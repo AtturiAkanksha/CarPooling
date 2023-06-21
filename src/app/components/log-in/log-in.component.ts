@@ -11,9 +11,9 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
-  logo:any = '/assets/images/logo.png/';
-  image1:any = '/assets/images/img1.png/';
-  logIn:any='/assets/images/logIn.png/';
+  logo:string = 'assets/images/logo.png';
+  image1:string = 'assets/images/img1.png';
+  logIn:string='assets/images/logIn.png';
   validLogin:Boolean =true;
   errormessage: string;
   currentUser:User;

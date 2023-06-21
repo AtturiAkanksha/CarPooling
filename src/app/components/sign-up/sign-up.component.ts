@@ -3,7 +3,6 @@ import { authService } from 'src/app/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/user';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,9 +10,9 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  logo: any = '/assets/images/logo.png/';
-  image1: any = '/assets/images/img1.png/';
-  image2: any = '/assets/images/img2.png/';
+  logo: string = 'assets/images/logo.png';
+  image1: string = 'assets/images/img1.png';
+  image2: string = 'assets/images/img2.png';
   toggleDiv: boolean = false;
 
   constructor(private authService: authService, private router:Router) {
