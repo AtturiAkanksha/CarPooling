@@ -9,11 +9,10 @@
                             <h3 class="box-title">offer a Ride</h3>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
-                                class="bi bi-toggle-off" viewBox="0 0 16 16">
-                                <path
-                                    d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z" />
-                            </svg>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
                         </div>
                     </div>
                     <p>we get you the matches asap!</p>
@@ -23,14 +22,13 @@
                         <div class="d-flex">
                             <div>
                                 <label class="text-small" for="startPoint">From:</label><br>
-                                <input id="startPoint" class="form-control" name="startPoint" type="text"
+                                <input id="startPoint" class="form-control mb-5" name="startPoint" type="text"
                                     formControlName="startPoint" required />
                                 <div *ngIf="isFormSubmitted && offerRideForm.get('from')?.errors?.['required']"
                                     class="error-message">Error! field empty</div>
                                 <label class="text-small" for="to">To:</label><br>
-                                <input class="form-control" id="endPoint" type="text" formControlName="endPoint"
+                                <input class="form-control mb-5" id="endPoint" type="text" formControlName="endPoint"
                                     required>
-
                             </div>
                             <div>
                                 <div>
@@ -65,11 +63,10 @@
                                 </div>
                             </div>
                         </div>
-                        <br><br>
                     </div>
 
                     <label class="text-small" for="date">Date:</label><br>
-                    <input type="date" class="form-control" formControlName="date" required><br><br>
+                    <input type="date" class="form-control mb-5" formControlName="date" required>
                     <div class="d-large">
                         <p class="text-small">Time:</p>
                         <div class="div-bottom timediv">
@@ -80,11 +77,9 @@
                                         (click)="onRadioChange($event)">{{timeSlot.timeSlot}}
                                 </label>
                             </div>
-
                         </div>
                         <h1 (click)="onNextClick()">Next>></h1>
                     </div>
-
                 </form>
             </div>
             <div class="flex-box" [hidden]="isShowDiv">

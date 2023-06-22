@@ -22,7 +22,6 @@ export class RidesComponent{
       (res) => { this.servicOutputOfferRide = res;
         this.servicOutputOfferRide.forEach(element => {
           this.pushOfferedRides(element);
-        console.log(this.tmpObjOfferRide);
       }
         ),
       this.offeredRides =this.tmpObjOfferRide;
@@ -33,7 +32,6 @@ export class RidesComponent{
     (res) => { this.serviceOutputBookRide = res;
       this.serviceOutputBookRide.forEach(element => {
         this.pushBookedRides(element);
-      console.log(this.tempObjBookRide);
     }
       ),
     this.bookedRides =this.tempObjBookRide;
