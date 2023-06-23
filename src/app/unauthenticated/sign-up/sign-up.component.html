@@ -12,14 +12,14 @@
         <img [src]="image2" class="image2" alt="">
         <hr>
         <div class="form-div">
-            <form action="" class="form" [formGroup]="signUpForm"  >
+            <form action="" class="form" formGroup="signUpForm"  >
                 <input type="text" id="fname" name="fname" value="Enter email id" formControlName = "email">
                 <div class="error-message" *ngIf="toggleDiv">Email Already exists</div>
                 <input type="password" id="enterPassword" value="Enter password" formControlName="password">
                 <input type="text" id="lname" value="Confirm password" formControlName="confirmPassword"><br>
                 <button type="button" (click)="submitForm()">Submit</button>
             </form>
-            <p>Already a member? <a [routerLink]="['/login']">LOG IN</a></p>
+            <p>Already a member? <a routerLink="login">LOG IN</a></p>
         </div>
     </div>
-</div>
+<

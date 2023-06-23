@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { authService } from 'src/app/auth.service';
+import { Component } from '@angular/core';
+import { authService } from 'src/app/shared/services/auth-service';
 import { Router } from '@angular/router';
-import { OfferRide } from 'src/app/offerRide';
-import { BookRide } from 'src/app/bookRide';
+import { OfferRide } from 'src/app/shared/models/offer-ride';
+import { BookRide } from 'src/app/shared/models/book-ride';
 
 @Component({
   selector: 'app-rides',

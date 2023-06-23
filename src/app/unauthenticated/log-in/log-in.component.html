@@ -12,13 +12,13 @@
         <img [src]="logIn" class="logIn" alt="">
         <hr>
         <div class="form-div">
-            <form [formGroup]="logInForm" class="form">
+            <form formGroup="logInForm" class="form">
                 <input type="text" id="email" name="email" value="Enter email id" formControlName = "email"><br><br>
                 <input type="password" id="enterPassword" value="Enter password" formControlName="password"><br><br>
                 <div *ngIf="validLogin == false" class="error-message">{{errormessage}}</div>
                 <button type="button" (click)="onLogIn()">Submit</button>
             </form>
-                <p>not a member yet? <a [routerLink]="['']">Sign Up</a></p>
+                <p>not a member yet? <a routerLink="">Sign Up</a></p>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/user';
+import { User } from 'src/app/shared/models/user';
 
 @Component({
   selector: 'app-home',

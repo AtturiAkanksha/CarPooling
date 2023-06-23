@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { authService } from 'src/app/auth.service';
-import { OfferRide } from 'src/app/offerRide';
+import { authService } from 'src/app/shared/services/auth-service';
+import { OfferRide } from 'src/app/shared/models/offer-ride';
 import { __values } from 'tslib';
 
 @Component({

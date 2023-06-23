@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { authService } from 'src/app/auth.service';
-import { BookRideRequest } from 'src/app/bookRideRequest';
-import { OfferRideResponseDTO } from 'src/app/offerRideResponseDTO';
-import { BookRide } from 'src/app/bookRide';
+import { authService } from 'src/app/shared/services/auth-service';
+import { BookRideRequest } from 'src/app/shared/models/book-ride-request';
+import { OfferRideResponseDTO } from 'src/app/shared/models/offer-ride-response';
+import { BookRide } from 'src/app/shared/models/book-ride';
 
 @Component({
   selector: 'app-book',
