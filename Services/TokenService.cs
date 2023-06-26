@@ -36,7 +36,7 @@ namespace CarPooling.Services
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
     }

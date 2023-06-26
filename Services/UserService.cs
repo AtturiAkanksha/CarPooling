@@ -39,9 +39,9 @@ namespace CarPooling.Services
                 }
                 throw new Exception("User doesn't exists");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
