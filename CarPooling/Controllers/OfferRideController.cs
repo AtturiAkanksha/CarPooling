@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using CarPooling.API.ResponseDTOs;
 using CarPooling.Services.Contracts;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 namespace CarPooling.API.Controllers
 {
@@ -16,10 +17,17 @@ namespace CarPooling.API.Controllers
     {
         private readonly IOfferRideService _offerRideService;
         private readonly IMapper _mapper;
+        private ClaimsPrincipal user => HttpContext.User;
+        int userId => (int)Convert.ToInt64(user.FindFirst("UserId")?.Value);
+        string userEmail => user.FindFirst("UserEmail")?.Value;
+
+
+
         public OfferRidecontroller(IOfferRideService offerRideService, IMapper mapper)
         {
             _offerRideService = offerRideService;
             _mapper = mapper;
+
         }
 
         [HttpGet]
@@ -30,7 +38,6 @@ namespace CarPooling.API.Controllers
             try
             {
                 IEnumerable<OfferRide> offeredRides = _offerRideService.GetAllOfferedRides();
-                int userId = (int)Convert.ToInt64(HttpContext.User.FindFirst("UserId")?.Value);
                 foreach (OfferRide ride in offeredRides)
                 {
                     if (userId != ride.UserId)
@@ -40,9 +47,9 @@ namespace CarPooling.API.Controllers
                 }
                 throw new Exception("No offered rides yet");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
 
         }
@@ -57,16 +64,20 @@ namespace CarPooling.API.Controllers
                 List<OfferRideResponse> getOfferedRides = _mapper.Map<List<OfferRideResponse>>(await _offerRideService.GetOfferedRides(_mapper.Map<OfferRide>(offerRideRequestDTO)));
                 if (getOfferedRides != null)
                 {
-                    return Ok(getOfferedRides);
+                    foreach (OfferRideResponse ride in getOfferedRides)
+                    {
+                        string userName = Regex.Replace(userEmail, @"^(.+)@.*$", "$1");
+                        if (userName != ride.UserName)
+                        {
+                            return Ok(getOfferedRides);
+                        }
+                    }
                 }
-                else
-                {
-                    throw new Exception("Sorry! no rides found for booking");
-                }
+                throw new Exception("Sorry! no rides found for booking");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
@@ -77,15 +88,13 @@ namespace CarPooling.API.Controllers
         {
             try
             {
-                ClaimsPrincipal user = HttpContext.User;
-                var userId = HttpContext.User.FindFirst("UserId")?.Value;
                 OfferRide _offerRide = _mapper.Map<OfferRide>(offerRideRequest);
-                _offerRide.UserId = (int)Convert.ToInt64(userId);
+                _offerRide.UserId = userId;
                 return Ok(await _offerRideService.OfferRide(_offerRide));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 

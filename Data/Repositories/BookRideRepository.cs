@@ -47,9 +47,9 @@ namespace CarPooling.Data.Repositories
                 }
                 throw new Exception("No rides exists");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
     }

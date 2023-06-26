@@ -35,9 +35,9 @@ namespace CarPooling.API.Controllers
                     Message = "success"
                 });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
@@ -56,9 +56,9 @@ namespace CarPooling.API.Controllers
                 };
                 return Ok(dataObject);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 

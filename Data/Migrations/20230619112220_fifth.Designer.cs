@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Carpooling.Data.Migrations
 {
     [DbContext(typeof(CarPoolingDbContext))]
-    [Migration("20230619063341_fifth")]
+    [Migration("20230619112220_fifth")]
     partial class fifth
     {
         /// <inheritdoc />

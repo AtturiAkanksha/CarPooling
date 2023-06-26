@@ -32,7 +32,7 @@ namespace CarPooling.Data.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 

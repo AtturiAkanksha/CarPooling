@@ -63,9 +63,9 @@ namespace CarPooling.API.Controllers
                 _bookRide.UserId = (int)Convert.ToInt64(userId);
                 return Ok(await this._bookRideService.BookRide(_bookRide));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
     }
