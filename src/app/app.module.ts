@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticatedModule } from './authenticated/authenticated.module';
 import { UnauthenticatedModule } from './unauthenticated/unauthenticated.module';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +16,6 @@ import { UnauthenticatedModule } from './unauthenticated/unauthenticated.module'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AppComponent,
     AuthenticatedModule,
     UnauthenticatedModule
   ],
