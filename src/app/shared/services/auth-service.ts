@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient ,HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 import { OfferRide } from '../models/offer-ride';
 import { BookRideRequest } from '../models/book-ride-request';
-import {OfferRideResponseDTO} from '../models/offer-ride-response'
+import { OfferRideResponseDTO } from '../models/offer-ride-response'
 import { BookRide } from '../models/book-ride';
-import {environment} from 'src/environments/environment.prod'
+import { environment } from 'src/environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +18,9 @@ export class authService {
   apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
-    headers = new HttpHeaders({
+  headers = new HttpHeaders({
     'Authorization': `Bearer ${this.token}`,
-    'Content-Type': 'application/json' 
+    'Content-Type': 'application/json'
   }
   );
 
@@ -36,27 +36,27 @@ export class authService {
 
   public OfferRide(offerRide: OfferRide): Observable<OfferRide> {
     const baseServerUrl = `${this.apiUrl}/OfferRide/offerRide`;
-    return this.http.post<OfferRide>(baseServerUrl, offerRide,{headers:this.headers})
+    return this.http.post<OfferRide>(baseServerUrl, offerRide, { headers: this.headers })
   }
 
   public GetAllOfferedRides(): Observable<OfferRide> {
     const baseServerUrl = `${this.apiUrl}/OfferRide/getAllOfferedRides`;
-    return this.http.get<OfferRide>(baseServerUrl,{headers:this.headers});
+    return this.http.get<OfferRide>(baseServerUrl, { headers: this.headers });
   }
 
   public BookRideRequest(bookRideRequest: BookRideRequest): Observable<BookRideRequest> {
     const baseServerUrl = `${this.apiUrl}/OfferRide/getOfferedRides`;
-    return this.http.post<BookRideRequest>(baseServerUrl, bookRideRequest,{headers:this.headers})
+    return this.http.post<BookRideRequest>(baseServerUrl, bookRideRequest, { headers: this.headers })
   }
 
   public BookRide(bookRide: BookRide): Observable<BookRide> {
     const baseServerUrl = `${this.apiUrl}/BookRide/bookRide`;
-    return this.http.post<BookRide>(baseServerUrl, bookRide,{headers:this.headers})
+    return this.http.post<BookRide>(baseServerUrl, bookRide, { headers: this.headers })
   }
-  
+
   public GetAllBookedRides(): Observable<OfferRideResponseDTO> {
     const baseServerUrl = `${this.apiUrl}/BookRide/getBookedRides`;
-    return this.http.get<OfferRideResponseDTO>(baseServerUrl,{headers:this.headers});
+    return this.http.get<OfferRideResponseDTO>(baseServerUrl, { headers: this.headers });
   }
 }
 

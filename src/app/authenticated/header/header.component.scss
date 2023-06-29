@@ -1,0 +1,36 @@
+.outer {
+    .d-flex {
+        display: flex;
+        height: 400px;
+        padding: 0 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .div-inner {
+        h1 {
+            font-size: 5rem;
+            margin-right: 1rem;
+        }
+        .logo {
+            height: 20rem;
+        }
+    }
+    .hidden {
+        box-shadow: 3px 3px 12px 12px grey;
+        float: right;
+        width: 25rem;
+        .option {
+            width: 25rem;
+            height: 10rem;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            :hover {
+                background-color: rgba(118, 83, 252, 255);
+                cursor: pointer;
+            }
+        }
+    }
+}

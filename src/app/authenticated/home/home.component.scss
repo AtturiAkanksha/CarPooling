@@ -1,0 +1,37 @@
+.outer-div {
+    padding: 0 5rem;
+    width: 100vw;
+    height: 100vh;
+    .title {
+        font-size: 5rem;
+        margin-left: 50rem;
+        margin-bottom: 0rem;
+    }
+    .image3 {
+        width: 100vw;
+        height: 65vh;
+    }
+    .flex-boxes {
+        display: flex;
+        justify-content: center;
+        .div-purple {
+            background-color: rgba(147, 25, 255, 255);
+        }
+        .div-yellow {
+            background-color: rgba(255, 172, 25, 255);
+        }
+        div {
+            height: 30rem;
+            width: 60rem;
+            color: white;
+            margin: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2rem;
+            p {
+                font-size: 5rem;
+            }
+        }
+    }
+}

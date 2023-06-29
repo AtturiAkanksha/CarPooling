@@ -5,28 +5,28 @@ import { User } from 'src/app/shared/models/user';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   logo: string = 'assets/images/logo.png';
-  isHide=true;
-  currentUser:User;
-  username:string;
+  isHide = true;
+  currentUser: User;
+  username: string;
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('user'))
     this.username = this.currentUser.email.match(/^([^@]*)@/)[1]
   }
-  onLogoClick(){
+  onLogoClick() {
     this.router.navigate(['/home'])
   }
-  onProfileClick(){
-    this.isHide= !this.isHide;
+  onProfileClick() {
+    this.isHide = !this.isHide;
   }
-  onMyridesClick(){
+  onMyridesClick() {
     this.router.navigate(['/rides'])
   }
-  onLogoutClick(){
+  onLogoutClick() {
     localStorage.clear();
     this.router.navigate(['/login']);
 

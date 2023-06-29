@@ -11,7 +11,7 @@ import { authService } from './services/auth-service';
   imports: [
     CommonModule,
   ],
-  exports:[
+  exports: [
     User,
     authService
   ]

@@ -9,17 +9,18 @@ import { BookRide } from 'src/app/shared/models/book-ride';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  styleUrls: ['./book.component.scss']
 })
 export class BookComponent {
 
   timeSlotSelected: string;
   tmpObj: OfferRideResponseDTO[] = [];
   servicOutput;
-  clickedCard:OfferRideResponseDTO;
+  clickedCard: OfferRideResponseDTO;
   offeredRides: OfferRideResponseDTO[] = [];
   isFormSubmitted: boolean = false;
-  isHidden:boolean = true;
+  isHidden: boolean = true;
+  closeResult: string;
 
   timeSlotsArray = [
     { timeSlot: "5am-9am" },
@@ -58,9 +59,9 @@ export class BookComponent {
           }
           ),
             this.offeredRides = this.tmpObj;
-            if (this.offeredRides.length ==0 ){
-              this.isHidden = false;
-            }
+          if (this.offeredRides.length == 0) {
+            this.isHidden = false;
+          }
         }
       )
     }
@@ -80,12 +81,14 @@ export class BookComponent {
       })
   }
 
-  onCardClick(value:number){
+  onCardClick(value: number) {
     this.clickedCard = this.offeredRides[value];
     const currentUser = JSON.parse(localStorage.getItem('user'))
     const username = currentUser.email.match(/^([^@]*)@/)[1]
-    const bookRide:BookRide = {startPoint:this.clickedCard.startPoint, endPoint:this.clickedCard.endPoint,date:this.clickedCard.date,seats:this.clickedCard.seats,price:this.clickedCard.price,timeSlot:this.clickedCard.timeSlot,offerRideId:this.clickedCard.offerRideId ,userName: username};
+    const bookRide: BookRide = { startPoint: this.clickedCard.startPoint, endPoint: this.clickedCard.endPoint, date: this.clickedCard.date, seats: this.clickedCard.seats, price: this.clickedCard.price, timeSlot: this.clickedCard.timeSlot, offerRideId: this.clickedCard.offerRideId, userName: username };
     this.authService.BookRide(bookRide).subscribe();
     this.bookRideForm.reset();
+    this.offeredRides.length = 0;
+
   }
 }

@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="div-outer d-flex">
     <div>
         <div class="pl-4">
             <img [src]="logo" class="logo" alt="">
@@ -8,12 +8,11 @@
         <img [src]="image1" class="image1" alt="">
     </div>
     <div class="div-right">
-       
         <img [src]="image2" class="image2" alt="">
         <hr>
         <div class="form-div">
-            <form action="" class="form" formGroup="signUpForm"  >
-                <input type="text" id="fname" name="fname" value="Enter email id" formControlName = "email">
+            <form action="" class="form" formGroup="signUpForm">
+                <input type="text" id="fname" name="fname" value="Enter email id" formControlName="email">
                 <div class="error-message" *ngIf="toggleDiv">Email Already exists</div>
                 <input type="password" id="enterPassword" value="Enter password" formControlName="password">
                 <input type="text" id="lname" value="Confirm password" formControlName="confirmPassword"><br>
@@ -22,4 +21,4 @@
             <p>Already a member? <a routerLink="login">LOG IN</a></p>
         </div>
     </div>
-<
+</div>

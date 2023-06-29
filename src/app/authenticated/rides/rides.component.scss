@@ -1,0 +1,59 @@
+.outer-div {
+    height: 100vh;
+    padding: 5rem 5rem;
+    background-image: url("/assets/images/img4.png");
+    background-repeat: no-repeat;
+    background-size: 390rem 100rem;
+    background-position-y: bottom;
+    .flex-boxes {
+        display: flex;
+        justify-content: space-evenly;
+        .bg-yellow {
+            background-color: rgba(255, 172, 25, 255);
+        }
+        .button {
+            margin-right: 4rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+        .bg-violet {
+            background-color: rgba(147, 25, 255, 255);
+        }
+        .text-large {
+            font-size: 4rem;
+        }
+        .scroll-container {
+            overflow-y: scroll;
+            height: 103rem;
+            width: 100rem;
+        }
+        button {
+            border-radius: 1rem;
+            height: 6rem;
+            width: 30rem;
+            border-color: white;
+        }
+        .flex-box {
+            height: max-content;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            width: 90rem;
+            box-shadow: 4px 4px 8px 8px rgb(199, 197, 197);
+            .box-body {
+                align-items: flex-start;
+                .text-small {
+                    font-size: 3rem;
+                    color: grey;
+                }
+            }
+            .box-title {
+                font-size: 6rem;
+            }
+            .d-flex {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+}

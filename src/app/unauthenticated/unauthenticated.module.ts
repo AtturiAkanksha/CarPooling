@@ -7,7 +7,7 @@ import { UnauthenticatedRoutingModule } from './unauthenticated-routing.module';
 
 @NgModule({
   declarations: [
-     LogInComponent,
+    LogInComponent,
     SignUpComponent],
   imports: [
     CommonModule,

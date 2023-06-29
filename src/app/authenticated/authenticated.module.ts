@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RidesComponent } from './rides/rides.component';
 
-
 @NgModule({
   declarations: [
     BookComponent,
@@ -20,7 +19,7 @@ import { RidesComponent } from './rides/rides.component';
     CommonModule,
     AuthenticatedRoutingModule
   ],
-  exports:[
+  exports: [
     BookComponent,
     OfferComponent,
     HeaderComponent,

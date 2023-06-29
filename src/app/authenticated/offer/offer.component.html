@@ -12,7 +12,7 @@
                             <label class="switch">
                                 <input type="checkbox">
                                 <span class="slider round"></span>
-                              </label>
+                            </label>
                         </div>
                     </div>
                     <p>we get you the matches asap!</p>
@@ -64,7 +64,6 @@
                             </div>
                         </div>
                     </div>
-
                     <label class="text-small" for="date">Date:</label><br>
                     <input type="date" class="form-control mb-5" formControlName="date" required>
                     <div class="d-large">
@@ -73,8 +72,7 @@
                             <div class="timediv-inner" *ngFor="let timeSlot of timeSlotsArray">
                                 <label class="" for="{{timeSlot.timeSlot}}">
                                     <input type="radio" formControlName="timeSlot" class="radio-btn"
-                                        id="{{timeSlot.timeSlot}}"
-                                        (click)="onRadioChange($event)">{{timeSlot.timeSlot}}
+                                        id="{{timeSlot.timeSlot}}" (click)="onRadioChange($event)">{{timeSlot.timeSlot}}
                                 </label>
                             </div>
                         </div>
@@ -107,7 +105,8 @@
                     </div>
                     <div class="d-flex ">
                         <div class="div-bottom seats-div">
-                            <div class="seats-div-inner"  *ngFor="let seats of noOfSeats">
+
+                            <div class="seats-div-inner" *ngFor="let seats of noOfSeats">
                                 <label class="" for="{{seats.seats}}">
                                     <input type="radio" class="radio-btn form-control " formControlName="seats"
                                         id="{{seats.seats}}" (click)="clickSeats($event)">{{seats.seats}}

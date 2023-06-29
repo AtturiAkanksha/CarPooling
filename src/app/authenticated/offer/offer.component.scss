@@ -1,0 +1,210 @@
+.outer-div {
+    background-image: url("/assets/images/img4.png");
+    background-repeat: no-repeat;
+    background-size: 100% 90rem;
+    background-position: bottom;
+    .div-radio-button:hover,
+    .background-purple {
+        background-color: rgba(147, 25, 255, 255);
+    }
+    .background-img {
+        background-image: url("/assets/images/img4.png");
+    }
+    .flex-boxes {
+        display: flex;
+        padding-left: 400px;
+        .flex-box {
+            height: 1971px;
+            padding: 5rem;
+            width: 1000px;
+            margin-right: 200px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 4px 4px 8px 8px rgb(199, 197, 197);
+            input {
+                border: 0;
+                border-bottom: 10px solid grey;
+                font-size: 4rem;
+                width: 70%;
+                :hover {
+                    border-bottom: 10px solid rgb(46, 177, 238);
+                }
+            }
+            .box-header {
+                font-size: 4rem;
+                .box-title {
+                    font-size: 7rem;
+                    margin-right: 5rem;
+                    margin-bottom: 5rem;
+                }
+                p {
+                    font-size: 3rem;
+                    color: grey;
+                    margin-top: -5rem;
+                    margin-bottom: 5rem;
+                }
+                .switch {
+                    position: relative;
+                    top: 38px;
+                    display: inline-block;
+                    width: 132px;
+                    height: 65px;
+                    input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: #ccc;
+                        -webkit-transition: 0.4s;
+                        transition: 0.4s;
+                    }
+
+                    .slider:before {
+                        position: absolute;
+                        content: "";
+                        height: 52px;
+                        width: 52px;
+                        left: 4px;
+                        bottom: 4px;
+                        background-color: white;
+                        -webkit-transition: 0.4s;
+                        transition: 0.4s;
+                    }
+
+                    input:checked + .slider {
+                        background-color: rgba(255, 172, 25, 255);
+                    }
+
+                    input:focus + .slider {
+                        box-shadow: 0 0 1px #2196f3;
+                    }
+
+                    input:checked + .slider:before {
+                        -webkit-transform: translateX(26px);
+                        -ms-transform: translateX(26px);
+                        transform: translateX(26px);
+                    }
+                    .slider.round {
+                        border-radius: 34px;
+                    }
+
+                    .slider.round:before {
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .d-flex {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            form {
+                h1 {
+                    color: rgba(147, 25, 255, 255);
+                    float: right;
+                    font-size: 5rem;
+                    margin-top: 10rem;
+                    cursor: pointer;
+                }
+                .text-small {
+                    font-size: 3rem;
+                    color: grey;
+                }
+                .addIcon {
+                    color: rgba(147, 25, 255, 255);
+                    height: 5rem;
+                    position: relative;
+                    left: 41rem;
+                    bottom: 7rem;
+                }
+                .text-large {
+                    font-size: 4rem;
+                }
+                .div-bottom {
+                    font-size: 3rem;
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+                    .radio-btn {
+                        display: none;
+                    }
+                }
+                .destinationIcon {
+                    color: rgba(147, 25, 255, 255);
+                    margin-top: 2rem;
+                }
+                .startIcon {
+                    background-color: rgba(147, 25, 255, 255);
+                    border-radius: 10rem;
+                }
+                .mb-5 {
+                    margin-bottom: 5rem;
+                }
+                .columm-class {
+                    display: flex;
+                    flex-direction: column;
+                    .circleIcon {
+                        background-color: grey;
+                        border-radius: 10rem;
+                        margin-top: 2rem;
+                        margin-left: 15px;
+                        border-color: none;
+                    }
+                }
+                #price {
+                    width: 12rem;
+                    position: relative;
+                    top: -6rem;
+                    left: 5rem;
+                }
+                .error-message {
+                    color: red;
+                    font-size: 30px;
+                }
+                .timediv-inner {
+                    width: 270px;
+                    height: 120px;
+                    margin-bottom: 5px;
+                    margin-right: 5px;
+                    border: 2px solid rgba(147, 25, 255, 255);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 130px;
+                }
+                .seats-div-inner {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    margin-bottom: 5px;
+                    margin-right: 5px;
+                    border: 2px solid rgba(147, 25, 255, 255);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 130px;
+                }
+                #submit {
+                    margin-top: 5rem;
+                    background-color: rgba(255, 172, 25, 255);
+                    color: white;
+                }
+                button {
+                    border-radius: 5rem;
+                    height: 6rem;
+                    width: 20rem;
+                }
+                .timediv,
+                .seats-div {
+                    height: 230px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

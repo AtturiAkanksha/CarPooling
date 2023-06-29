@@ -5,23 +5,23 @@ import { User } from 'src/app/shared/models/user';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  image3:string='assets/images/img3.png'
-  currentUser:User;
-  userName:string;
+  image3: string = 'assets/images/img3.png'
+  currentUser: User;
+  userName: string;
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('user'))
     this.userName = this.currentUser.email.match(/^([^@]*)@/)[1]
   }
 
-  bookRide(){
+  bookRide() {
     this.router.navigate(['/book'])
   }
-  
-  offerRide(){
+
+  offerRide() {
     this.router.navigate(['/offer'])
   }
 }
